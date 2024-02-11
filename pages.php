@@ -252,8 +252,7 @@ if(!$dataPages){
                             <div class="postbox__content">
                                 <div class="postbox__meta">
                                     <span><i class="fi fi-rr-calendar"></i> <?php echo date("m-d-Y", strtotime($dataPages["created_at"])); ?></span>
-                                    <span><a href="#"><i class="fi fi-rr-user"></i> Shahnewaz</a></span>
-                                    <span><a href="#"><i class="fi fi-rr-comments"></i> 02 Comments</a></span>
+                                    <span><a href="#"><i class="fi fi-rr-user"></i> <?php echo $dataPages['penulis']; ?></a></span>
                                 </div>
                                 <h3 class="postbox__title">
                                     <?php echo $dataPages['nama']; ?>
@@ -270,100 +269,6 @@ if(!$dataPages){
                                 </div>
                             </div>
                         </article>
-                        <div class="postbox__comment mb-65">
-                            <h3 class="postbox__comment-title">3 Comments</h3>
-                            <ul>
-                                <li>
-                                    <div class="postbox__comment-box grey-bg">
-                                        <div class="postbox__comment-info d-flex">
-                                            <div class="postbox__comment-avater mr-20">
-                                                <img src="web_assets/img/blog/comments/comment-1.jpg" alt="">
-                                            </div>
-                                            <div class="postbox__comment-name">
-                                                <h5>Eleanor Fant</h5>
-                                                <span class="post-meta"> July 14, 2022</span>
-                                            </div>
-                                        </div>
-                                        <div class="postbox__comment-text ml-65">
-                                            <p>So I said lurgy dropped a clanger Jeffrey bugger cuppa gosh David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                            <div class="postbox__comment-reply">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="children">
-                                    <div class="postbox__comment-box grey-bg">
-                                        <div class="postbox__comment-info d-flex">
-                                            <div class="postbox__comment-avater mr-20">
-                                                <img src="web_assets/img/blog/comments/comment-2.jpg" alt="">
-                                            </div>
-                                            <div class="postbox__comment-name">
-                                                <h5>Eleanor Fant</h5>
-                                                <span class="post-meta"> July 14, 2022</span>
-                                            </div>
-                                        </div>
-                                        <div class="postbox__comment-text ml-65">
-                                            <p>So I said lurgy dropped a clanger Jeffrey bugger cuppa gosh David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                            <div class="postbox__comment-reply">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="postbox__comment-box grey-bg">
-                                        <div class="postbox__comment-info d-flex">
-                                            <div class="postbox__comment-avater mr-20">
-                                                <img src="web_assets/img/blog/comments/comment-3.jpg" alt="">
-                                            </div>
-                                            <div class="postbox__comment-name">
-                                                <h5>Eleanor Fant</h5>
-                                                <span class="post-meta"> July 14, 2022</span>
-                                            </div>
-                                        </div>
-                                        <div class="postbox__comment-text ml-65">
-                                            <p>So I said lurgy dropped a clanger Jeffrey bugger cuppa gosh David blatant have it, standard A bit of how's your father my lady absolutely.</p>
-                                            <div class="postbox__comment-reply">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="postbox__comment-form">
-                            <h3 class="postbox__comment-form-title">Write a comment</h3>
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                        <div class="postbox__comment-input">
-                                            <input type="text" placeholder="Your Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                        <div class="postbox__comment-input">
-                                            <input type="email" placeholder="Your Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="postbox__comment-input">
-                                            <input type="text" placeholder="Website">
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="postbox__comment-input">
-                                            <textarea placeholder="Enter your comment ..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-12">
-                                        <div class="postbox__comment-btn">
-                                            <button type="submit" class="tp-btn">Post Comment</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-12">
@@ -382,7 +287,7 @@ if(!$dataPages){
                             </div>
                         </div>
                         <div class="sidebar__widget mb-55">
-                            <h3 class="sidebar__widget-title mb-25">Recent Post</h3>
+                            <h3 class="sidebar__widget-title mb-25">Latest Post</h3>
                             <div class="sidebar__widget-content">
                                 <div class="sidebar__post rc__post">
                                     <div class="rc__post mb-20 d-flex align-items-center">
@@ -425,18 +330,6 @@ if(!$dataPages){
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__widget mb-40">
-                            <h3 class="sidebar__widget-title mb-10">Category</h3>
-                            <div class="sidebar__widget-content">
-                                <ul>
-                                    <li><a href="blog.html">Business <span>(14)</span></a></li>
-                                    <li><a href="blog.html">Cleaning <span>(19)</span></a></li>
-                                    <li><a href="blog.html">Consultant <span>(21)</span></a></li>
-                                    <li><a href="blog.html">Creative <span>(27)</span></a></li>
-                                    <li><a href="blog.html">Technology <span>(35)</span></a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="sidebar__widget mb-40">
