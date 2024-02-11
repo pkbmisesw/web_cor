@@ -1,6 +1,6 @@
 <?php
 include '../../config.php';
-include 'components.php';
+include 'get.php';
 error_reporting(0);
 
 
@@ -15,8 +15,7 @@ $ket = "";
 $ketnama = "Silahkan mengisi nama";
 
 $pageId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-// $pageData = getPagesById($pageId);
-
+$pageData = getid($pageId);
 
 if (!$pageData) {
     echo "Halaman tidak ditemukan!";
@@ -25,7 +24,7 @@ if (!$pageData) {
 ?>
 
 <h1>Edit Pages</h1>
-<form action="../../controller/<?php echo $dba; ?>_controller.php?op=edit_basic" method="post">
+<form action="../../controller/<?php echo $dba; ?>_controller.php?op=edit" enctype="multipart/form-data" method="post">
     <input type="hidden" name="id" value="<?php echo htmlspecialchars($pageData["id"]); ?>" />
     <table>
         <tr>
@@ -37,10 +36,21 @@ if (!$pageData) {
             <td><input type="text" name="nama" value="<?php echo htmlspecialchars($pageData["nama"]); ?>" /></td>
         </tr>
         <tr>
-            <td>Des</td>
-            <td><input type="text" name="nama" value="<?php echo htmlspecialchars($pageData["nama"]); ?>" /></td>
+            <td>Gambar</td>
+            <td><input type="file" name="gambar"></td>
         </tr>
-       
+        <tr>
+            <td>Des</td>
+            <td><input type="text" name="des" value="<?php echo htmlspecialchars($pageData["des"]); ?>" /></td>
+        </tr>
+        <tr>
+            <td>View</td>
+            <td><input type="text" name="view" value="<?php echo htmlspecialchars($pageData["view"]); ?>" /></td>
+        </tr>
+        <tr>
+            <td>SEO</td>
+            <td><input type="text" name="seo" value="<?php echo htmlspecialchars($pageData["seo"]); ?>" /></td>
+        </tr>
         <tr>
             <td>Status</td>
             <td>

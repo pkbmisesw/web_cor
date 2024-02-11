@@ -1,6 +1,6 @@
 <?php
 
-function getPagesById($id)
+function getid($id)
 {
     global $conn;
     $query = "SELECT * FROM `m_pages` WHERE id=$id";
