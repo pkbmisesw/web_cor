@@ -1,3 +1,7 @@
+<?php
+include 'config.php';
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -84,49 +88,24 @@
                         <div class="main-menu main-menu-black d-flex justify-content-end">
                             <nav id="mobile-menu">
                                 <ul>
+                                    <?php
+                                    $sqlPages = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
+                                    $sqlPages->execute();
+                                    while($dataPages = $sqlPages->fetch()){
+                                    ?>
                                     <li class="has-dropdown">
-                                        <a href="index.html">Home</a>
+                                        <a href="#"><?php echo $dataPages['nama']; ?></a>
                                         <ul class="submenu">
-                                            <li><a href="index.html">Home Style 1</a></li>
-                                            <li><a href="index-2.html">Home Style 2</a></li>
-                                            <li><a href="index-3.html">Home Style 3</a></li>
+                                            <?php
+                                            $sqlSubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
+                                            $sqlSubpages->execute([":pages_id" => $dataPages['id']]);
+                                            while($dataSubpages = $sqlSubpages->fetch()){
+                                            ?>
+                                            <li><a href='<?php echo $dataSubpages['url']; ?>'><?php echo $dataSubpages['nama']; ?></a></li>
+                                            <?php } ?>
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown">
-                                        <a href="about.html">Pages</a>
-                                        <ul class="submenu">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="checkout.html">Check Out</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="sign-in.html">Sign In</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                        <a href="instructor.html">Instructor</a>
-                                        <ul class="submenu">
-                                            <li><a href="instructor.html">Instructor</a></li>
-                                            <li><a href="instructor-profile.html">Instructor Profile</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                        <a href="course-grid.html">Course</a>
-                                        <ul class="submenu">
-                                            <li><a href="course-grid.html">Course Grid</a></li>
-                                            <li><a href="course-list.html">Course List</a></li>
-                                            <li><a href="course-details.html">Course Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-dropdown">
-                                        <a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
+                                    <?php } ?>
                                 </ul>
                             </nav>
                         </div>
