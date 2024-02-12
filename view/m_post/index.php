@@ -50,7 +50,7 @@ th {
     <tr>
         <td><?php echo $count; ?></td>
         <td><?php echo $data['nama']; ?></td>
-        <td><a href='../../images/<?php echo $data['url'] ?>'>Lihat</a></td>
+        <td><a href='../../web_assets/img/post/<?php echo $data['gambar'] ?>'>Lihat</a></td>
         <td><?php echo $data['penulis']; ?></td>
         <td><?php echo $data['tgl']; ?></td>
         <td><?php echo $data['stat']; ?></td>
@@ -58,7 +58,7 @@ th {
         <td>
             <a href="edit.php?id=<?php echo $data['id'] ?>">Edit</a>
             <a onclick="return confirm('are you want deleting data')"
-                href="../../controller/<?php echo $template; ?>_controller.php?op=hapus&id=<?php echo $surat['id']; ?>">❌</a>
+                href="../../controller/<?php echo $template; ?>_controller.php?op=hapus&id=<?php echo $data['id']; ?>">❌</a>
         </td>
     </tr>
 

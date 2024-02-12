@@ -6,6 +6,11 @@ if (isset($_SESSION['email']) == 0) {
     header('Location: ../../index.php');
 }
 
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    echo "<script>alert('ID tidak ditemukan.'); window.location.href='index.php';</script>";
+    exit;
+}
+
 // Mengambil data pages
 $sqlPages = "SELECT id, nama FROM m_pages";
 $stmtPages = $conn->prepare($sqlPages);

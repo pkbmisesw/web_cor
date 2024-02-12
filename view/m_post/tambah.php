@@ -7,8 +7,7 @@ if (isset($_SESSION['email']) == 0) {
     header('Location: index.php');
 }
 
-$template = "subpages";
-
+$template = "post";
 
 ?>
 
@@ -18,25 +17,28 @@ $template = "subpages";
 <form action="../../controller/<?php echo $template; ?>_controller.php?op=tambah" method="post">
     <table>
         <tr>
-            <td for="page">Pages</td>
-            <td> <select name="page_id" id="page">
-                    <?php foreach ($pages as $page) : ?>
-                        <option value="<?= $page['id'] ?>"><?= htmlspecialchars($page['nama']) ?></option>
-                    <?php endforeach; ?>
-                </select></td>
-        </tr>
-
-        <tr>
-            <td>Nama</td>
-            <td><input type="text" name="nama"></td>
+            <td>Title</td>
+            <td><input type="text" name="title"></td>
         </tr>
         <tr>
-            <td>Description</td>
-            <td><textarea name="des" cols="30" rows="10"></textarea></td>
+            <td>Penulis</td>
+            <td><input type="text" name="penulis"></td>
+        </tr>
+        <tr>
+            <td>Tanggal</td>
+            <td><input type="text" name="tanggal"></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><input type="number" name="status"></td>
+        </tr>
+        <tr>
+            <td>No. Urut</td>
+            <td><input type="number" name="no_urut"></td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="pages" value="Add">
+                <input type="submit" name="submit" value="Add">
             </td>
         </tr>
     </table>
