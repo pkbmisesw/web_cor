@@ -1,6 +1,6 @@
 <?php
 
-function getPostById($id)
+function getid($id)
 {
     global $conn;
     $query = "SELECT * FROM `m_post` WHERE id=$id";

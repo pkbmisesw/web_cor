@@ -33,7 +33,7 @@ if($op == "edit"){
                 no_urut = :no_urut 
                 WHERE id = $id";
 
-                $imageDir = "../web_assets/img/post/";
+                $imageDir = "../images/";
                 $imageFileType = strtolower(pathinfo($gambar['name'],PATHINFO_EXTENSION));
                 $allowedFileType = array('jpg','JPG','jpeg','JPEG','PNG','png','xls', 'gif', 'doc', 'docx', 'xlsx', 'zip','pdf');
 

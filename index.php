@@ -1,11 +1,11 @@
 <?php
-error_reporting(0);
+// error_reporting(0);
 include 'config.php';
 
-$sqla = "SELECT * FROM setting ORDER BY id DESC";
-$stmta = $conn->prepare($sqla);
-$stmta->execute();
-$rowa = $stmta->fetch();
+$sql_setting = "SELECT * FROM setting ORDER BY id DESC";
+$stmt = $conn->prepare($sql_setting);
+$stmt->execute();
+$row_setting = $stmt->fetch();
 
 ?>
 
@@ -40,6 +40,13 @@ $rowa = $stmta->fetch();
 
 <main>
 
+    <?php
+    $sql_post = "SELECT * FROM m_post WHERE stat=2 ORDER BY ID DESC";
+    $stmt = $conn->prepare($sql_post);
+    $stmt->execute();
+    $sql_post = $stmt->fetch();
+    ?>
+
     <!-- banner-area -->
     <section class="banner-area fix p-relative">
         <div class="banner-bg banner-bg-rainbow" data-background="web_assets/img/banner/banner-bg-2.jpg">
@@ -47,15 +54,15 @@ $rowa = $stmta->fetch();
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-8">
                         <div class="hero-content hero-content-black">
-                            <h2 class="hero-title-black mb-45">Online Learning Designed For <br>Real Life</h2>
+                            <h2 class="hero-title-black mb-45"><?php echo $sql_post['nama']; ?></h2>
                             <div class="hero-btn">
-                                <a href="course-list.html" class="tp-btn">All Courses</a>
+                                <a href="post.php?p=<?php echo $sql_post['id']; ?>" class="tp-btn">Read Me</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="banner-shape d-none d-md-block">
-                            <img src="web_assets/img/banner/banner-img-1.png" alt="banner-shape" class="b-shape-3">
+                            <img src="images/<?php echo $sql_post['gambar']; ?>" alt="banner-shape" class="b-shape-3">
                         </div>
                     </div>
                 </div>

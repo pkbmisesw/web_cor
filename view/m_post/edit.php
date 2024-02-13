@@ -1,6 +1,6 @@
 <?php
 include '../../config.php';
-include 'components.php';
+include 'get.php';
 error_reporting(0);
 
 /* Halaman ini tidak dapat diakses jika belum ada yang login(masuk) */
@@ -8,14 +8,17 @@ if (isset($_SESSION['email']) == 0) {
     header('Location: index.php');
 }
 
-$template = "post";
+$master = "Post";
+$dba = "post";
+$ket = "";
+$ketnama = "Silahkan mengisi nama";
 
-$pageData = getPostById($_GET['id']);
+$pageData = getid($_GET['id']);
 
 ?>
 
-<h1>Edit Post</h1>
-<form action="../../controller/<?php echo $template; ?>_controller.php?op=edit" enctype="multipart/form-data" method="post">
+<h1>Edit <?php echo $master; ?></h1>
+<form action="../../controller/<?php echo $dba; ?>_controller.php?op=edit" enctype="multipart/form-data" method="post">
     <table>
         <input type="hidden" name="id" value='<?php echo $_GET["id"]; ?>' />
         <tr>

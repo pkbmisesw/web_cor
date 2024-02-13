@@ -28,24 +28,9 @@
                     <div class="col-xxl-3 col-xl-3 col-lg-5 col-md-6 col-6">
                         <div class="logo-area d-flex align-items-center">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="web_assets/img/logo/logo-black.png" alt="logo">
+                                <a href="#">
+                                    <img src="images/<?php echo $row_setting['logo']; ?>" alt="logo">
                                 </a>
-                            </div>
-                            <div class="header-cat-menu ml-40 d-none d-md-block">
-                                <nav>
-                                    <ul>
-                                        <li><a href="course-grid.html"> Categorie <span><i class="arrow_carrot-down"></i></span></a>
-                                            <ul class="sub-menu">
-                                                <li><a href="course-grid.html">Bangla Medium</a></li>
-                                                <li><a href="course-grid.html">English Medium</a></li>
-                                                <li><a href="course-grid.html">Video Edition</a></li>
-                                                <li><a href="course-grid.html">Logo Design</a></li>
-                                                <li><a href="course-grid.html">Francy Medium</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>
@@ -93,8 +78,7 @@
                         <div class="header-right d-flex align-items-center">
                             <div class="header-meta header-meta-white">
                                 <ul>
-                                    <li><a href="sign-in.html" class="d-none d-md-block"><i class="fi fi-rr-user"></i></a></li>
-                                    <li><a href="cart.html" class="d-none d-md-block"><i class="	 fi fi-rr-shopping-bag"></i></a></li>
+                                    <li><a href="login.php" class="d-none d-md-block"><i class="fi fi-rr-user"></i></a></li>
                                     <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                                 </ul>
                             </div>
