@@ -36,7 +36,17 @@ $pageData = getPostById($_GET['id']);
         </tr>
         <tr>
             <td>Status</td>
-            <td><input type="number" name="status" value="<?= $pageData['stat']; ?>"></td>
+            <td><input type="number" name="status" value="<?= $pageData['stat']; ?>">
+            1. Aktif
+            2. Slide
+            3. Berita Utama
+            4. Konten
+            5. Utama
+            6. Mitra
+            7. Icon
+            8. Web
+            9. Gambar
+        </td>
         </tr>
         <tr>
             <td>No. Urut</td>

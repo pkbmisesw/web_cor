@@ -55,8 +55,9 @@ if (!$pageData) {
             <td>Status</td>
             <td>
                 <select name="status">
-                    <option value="1" <?php echo $pageData["status"] == 1 ? 'selected' : ''; ?>>Aktif</option>
-                    <option value="0" <?php echo $pageData["status"] == 0 ? 'selected' : ''; ?>>Non-Aktif</option>
+                    <option value="1" <?php echo $pageData["status"] == 1 ? 'selected' : ''; ?>>Ada Sub Halaman</option>
+                    <option value="0" <?php echo $pageData["status"] == 0 ? 'selected' : ''; ?>>Aktif</option>
+                    <option value="3" <?php echo $pageData["status"] == 3 ? 'selected' : ''; ?>>Custom Halaman</option>
                 </select>
             </td>
         </tr>

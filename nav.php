@@ -54,32 +54,32 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <?php
-                                    $sqlPages = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
-                                    $sqlPages->execute();
-                                    while($dataPages = $sqlPages->fetch()){
-                                        if($dataPages['stat'] == 0){ ?>
-                                            <li><a href='<?php echo $dataPages['url']; ?>'><?php echo $dataPages['nama']; ?></a></li>
-                                        <?php } else if($dataPages['stat'] == 1) { ?>
+                                    $sqlpages = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
+                                    $sqlpages->execute();
+                                    while($datapages = $sqlpages->fetch()){
+                                        if($datapages['stat'] == 0){ ?>
+                                            <li><a href='<?php echo $datapages['url']; ?><?php echo $datapages['id']; ?>'><?php echo $datapages['nama']; ?></a></li>
+                                        <?php } else if($datapages['stat'] == 1) { ?>
                                             <li class="has-dropdown">
-                                                <a href="#"><?php echo $dataPages['nama']; ?></a>
+                                                <a href="#"><?php echo $datapages['nama']; ?></a>
                                                 <ul class="submenu">
                                                     <?php
-                                                    $sqlSubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
-                                                    $sqlSubpages->execute([":pages_id" => $dataPages['id']]);
-                                                    while($dataSubpages = $sqlSubpages->fetch()){
+                                                    $sqlsubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
+                                                    $sqlsubpages->execute([":pages_id" => $datapages['id']]);
+                                                    while($dataSubpages = $sqlsubpages->fetch()){
                                                         ?>
                                                         <li><a href='<?php echo $dataSubpages['url']; ?><?php echo $dataSubpages['id']; ?>'><?php echo $dataSubpages['nama']; ?></a></li>
                                                     <?php } ?>
                                                 </ul>
                                             </li>
-                                        <?php } else if($dataPages['stat'] == 2){ ?>
+                                        <?php } else if($datapages['stat'] == 2){ ?>
                                             <li class="has-dropdown">
-                                                <a href="<?php echo $dataPages['url']; ?>"><?php echo $dataPages['nama']; ?></a>
+                                                <a href="<?php echo $datapages['url']; ?>"><?php echo $datapages['nama']; ?></a>
                                                 <ul class="submenu">
                                                     <?php
-                                                    $sqlSubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
-                                                    $sqlSubpages->execute([":pages_id" => $dataPages['id']]);
-                                                    while($dataSubpages = $sqlSubpages->fetch()){
+                                                    $sqlsubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
+                                                    $sqlsubpages->execute([":pages_id" => $datapages['id']]);
+                                                    while($dataSubpages = $sqlsubpages->fetch()){
                                                         ?>
                                                         <li><a href='<?php echo $dataSubpages['url']; ?>'><?php echo $dataSubpages['nama']; ?></a></li>
                                                     <?php } ?>

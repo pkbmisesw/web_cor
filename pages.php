@@ -212,30 +212,8 @@ if(!$dataPages){
         </div>
     </div>
 </div>
-<div class="body-overlay"></div>
 
 <main>
-
-    <!-- breadcrumb-area -->
-    <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay" data-background="web_assets/img/breadcrumb/breadcrumb-bg-1.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="breadcrumb__content p-relative z-index-1">
-                        <h3 class="breadcrumb__title mb-20">Blog Details</h3>
-                        <div class="breadcrumb__list">
-                            <span><a href="index.html">Home</a></span>
-                            <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                            <span><a href="blog.html">Blog</a></span>
-                            <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                            <span class="sub-page-black">Blog Details</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb-area-end -->
 
     <!-- postbox area start -->
     <div class="postbox__area pt-120 pb-120 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
