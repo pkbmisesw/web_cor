@@ -9,35 +9,16 @@ $dataPages = $sqlPages->fetch();
 if(!$dataPages){
     echo '<script>document.location.href="index.php"</script>';
 }
+
+$sql_setting = "SELECT * FROM setting ORDER BY id DESC";
+$stmt = $conn->prepare($sql_setting);
+$stmt->execute();
+$row_setting = $stmt->fetch();
 ?>
 
-<!doctype html>
-<html class="no-js" lang="zxx">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Epora - Online Courses & Education HTML Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="web_assets/img/favicon.png">
-
-    <!-- CSS here -->
-    <link rel="stylesheet" href="web_assets/css/bootstrap.css">
-    <link rel="stylesheet" href="web_assets/css/meanmenu.css">
-    <link rel="stylesheet" href="web_assets/css/animate.css">
-    <link rel="stylesheet" href="web_assets/css/slick.css">
-    <link rel="stylesheet" href="web_assets/css/backtotop.css">
-    <link rel="stylesheet" href="web_assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="web_assets/css/nice-select.css">
-    <link rel="stylesheet" href="web_assets/css/ui-icon.css">
-    <link rel="stylesheet" href="web_assets/css/elegentfonts.css">
-    <link rel="stylesheet" href="web_assets/css/font-awesome-pro.css">
-    <link rel="stylesheet" href="web_assets/css/spacing.css">
-    <link rel="stylesheet" href="web_assets/css/style.css">
-</head>
+<?php
+include 'head.php';
+?>
 
 <body>
 <!--[if lte IE 9]>
@@ -72,8 +53,8 @@ if(!$dataPages){
                     <div class="col-xxl-7 col-xl-6 col-lg-6 col-md-5 col-6">
                         <div class="logo-area d-flex align-items-center">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="web_assets/img/logo/logo-black.png" alt="logo">
+                                <a href="/">
+                                    <img src="images/<?php echo $row_setting['logo']; ?>" alt="logo">
                                 </a>
                             </div>
                             <div class="header-cat-menu ml-40">
@@ -117,34 +98,34 @@ if(!$dataPages){
                         <nav id="mobile-menu">
                             <ul>
                                 <?php
-                                $sqlPagesAll = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
-                                $sqlPagesAll->execute();
-                                while($dataPagesAll = $sqlPagesAll->fetch()){
-                                    if($dataPagesAll['stat'] == 0){ ?>
-                                        <li><a href='<?php echo $dataPagesAll['url']; ?>'><?php echo $dataPagesAll['nama']; ?></a></li>
-                                    <?php } else if($dataPagesAll['stat'] == 1) { ?>
+                                $sqlpages = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
+                                $sqlpages->execute();
+                                while($datapages = $sqlpages->fetch()){
+                                    if($datapages['stat'] == 0){ ?>
+                                        <li><a href='<?php echo $datapages['url']; ?><?php echo $datapages['id']; ?>'><?php echo $datapages['nama']; ?></a></li>
+                                    <?php } else if($datapages['stat'] == 1) { ?>
                                         <li class="has-dropdown">
-                                            <a href="#"><?php echo $dataPagesAll['nama']; ?></a>
+                                            <a href="#"><?php echo $datapages['nama']; ?></a>
                                             <ul class="submenu">
                                                 <?php
-                                                $sqlSubpagesAll = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
-                                                $sqlSubpagesAll->execute([":pages_id" => $dataPages['id']]);
-                                                while($dataSubpagesAll = $sqlSubpagesAll->fetch()){
+                                                $sqlsubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
+                                                $sqlsubpages->execute([":pages_id" => $datapages['id']]);
+                                                while($dataSubpages = $sqlsubpages->fetch()){
                                                     ?>
-                                                    <li><a href='<?php echo $dataSubpagesAll['url']; ?>'><?php echo $dataSubpagesAll['nama']; ?></a></li>
+                                                    <li><a href='<?php echo $dataSubpages['url']; ?><?php echo $dataSubpages['id']; ?>'><?php echo $dataSubpages['nama']; ?></a></li>
                                                 <?php } ?>
                                             </ul>
                                         </li>
-                                    <?php } else if($dataPagesAll['stat'] == 2){ ?>
+                                    <?php } else if($datapages['stat'] == 2){ ?>
                                         <li class="has-dropdown">
-                                            <a href="<?php echo $dataPagesAll['url']; ?>"><?php echo $dataPagesAll['nama']; ?></a>
+                                            <a href="<?php echo $datapages['url']; ?>"><?php echo $datapages['nama']; ?></a>
                                             <ul class="submenu">
                                                 <?php
-                                                $sqlSubpagesAll = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
-                                                $sqlSubpagesAll->execute([":pages_id" => $dataPages['id']]);
-                                                while($dataSubpagesAll = $sqlSubpagesAll->fetch()){
+                                                $sqlsubpages = $conn->prepare("SELECT * FROM m_subpages WHERE pages_id=:pages_id ORDER BY id ASC");
+                                                $sqlsubpages->execute([":pages_id" => $datapages['id']]);
+                                                while($dataSubpages = $sqlsubpages->fetch()){
                                                     ?>
-                                                    <li><a href='<?php echo $dataSubpagesAll['url']; ?>'><?php echo $dataSubpagesAll['nama']; ?></a></li>
+                                                    <li><a href='<?php echo $dataSubpages['url']; ?>'><?php echo $dataSubpages['nama']; ?></a></li>
                                                 <?php } ?>
                                             </ul>
                                         </li>
@@ -157,8 +138,7 @@ if(!$dataPages){
                 <div class="col-xxl-3 col-xl-3 col-lg-6 d-flex align-items-center justify-content-end">
                     <div class="header-meta-green">
                         <ul>
-                            <li><a href="sign-in.html"><i class="fi fi-rr-user"></i></a></li>
-                            <li><a href="cart.html"><i class="fi fi-rr-shopping-bag"></i></a></li>
+                            <li><a href="/login"><i class="fi fi-rr-user"></i></a></li>
                             <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                         </ul>
                     </div>
@@ -249,82 +229,9 @@ if(!$dataPages){
                         </article>
                     </div>
                 </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-12">
-                    <div class="sidebar__wrapper">
-                        <div class="sidebar__widget mb-55">
-                            <div class="sidebar__widget-content">
-                                <h3 class="sidebar__widget-title mb-25">Search</h3>
-                                <div class="sidebar__search">
-                                    <form action="#">
-                                        <div class="sidebar__search-input-2">
-                                            <input type="text" placeholder="Search Anything">
-                                            <button type="submit"><i class="far fa-search"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__widget mb-55">
-                            <h3 class="sidebar__widget-title mb-25">Latest Post</h3>
-                            <div class="sidebar__widget-content">
-                                <div class="sidebar__post rc__post">
-                                    <div class="rc__post mb-20 d-flex align-items-center">
-                                        <div class="rc__post-thumb">
-                                            <a href="blog-details.html"><img src="web_assets/img/blog/sidebar/blog-sm-1.jpg" alt="blog-sidebar"></a>
-                                        </div>
-                                        <div class="rc__post-content">
-                                            <h3 class="rc__post-title">
-                                                <a href="blog-details.html">Seamlessly monetize centa material bleeding.</a>
-                                            </h3>
-                                            <div class="rc__meta">
-                                                <span>21 Jan 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="rc__post mb-20 d-flex align-items-center">
-                                        <div class="rc__post-thumb">
-                                            <a href="blog-details.html"><img src="web_assets/img/blog/sidebar/blog-sm-2.jpg" alt="blog-sidebar"></a>
-                                        </div>
-                                        <div class="rc__post-content">
-                                            <h3 class="rc__post-title">
-                                                <a href="blog-details.html">How often should you schedule professional</a>
-                                            </h3>
-                                            <div class="rc__meta">
-                                                <span>July 21, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="rc__post mb-20 d-flex align-items-center">
-                                        <div class="rc__post-thumb">
-                                            <a href="blog-details.html"><img src="web_assets/img/blog/sidebar/blog-sm-3.jpg" alt="blog-sidebar"></a>
-                                        </div>
-                                        <div class="rc__post-content">
-                                            <h3 class="rc__post-title">
-                                                <a href="blog-details.html">How to keep your institue and home Safe</a>
-                                            </h3>
-                                            <div class="rc__meta">
-                                                <span>July 21, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__widget mb-40">
-                            <h3 class="sidebar__widget-title mb-30">Tags</h3>
-                            <div class="sidebar__widget-content">
-                                <div class="tagcloud tagcloud-d">
-                                    <a href="#">IT Solution</a>
-                                    <a href="#">Digital Marketing</a>
-                                    <a href="#">Software Training</a>
-                                    <a href="#">Art & Design</a>
-                                    <a href="#">Photography</a>
-                                    <a href="#">Music</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                include 'sidebar.php';
+                ?>
             </div>
         </div>
     </div>

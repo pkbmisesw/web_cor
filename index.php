@@ -56,7 +56,7 @@ $row_setting = $stmt->fetch();
                         <div class="hero-content hero-content-black">
                             <h2 class="hero-title-black mb-45"><?php echo $sql_post['nama']; ?></h2>
                             <div class="hero-btn">
-                                <a href="post.php?p=<?php echo $sql_post['id']; ?>" class="tp-btn">Read Me</a>
+                                <a href="post?p=<?php echo $sql_post['id']; ?>" class="tp-btn">Read Me</a>
                             </div>
                         </div>
                     </div>
