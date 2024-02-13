@@ -8,3 +8,4 @@
 <a href="../m_surat">6.Surat</a>
 <a href="../m_kategori">7.Kategori</a>
 <a href="../m_kursus">8.Kursus</a>
+<a href="../setting">9.Setting</a>
