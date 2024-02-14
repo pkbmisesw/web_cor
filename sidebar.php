@@ -9,9 +9,9 @@ $sql_pages->execute();
             <div class="sidebar__widget-content">
                 <h3 class="sidebar__widget-title mb-25">Search</h3>
                 <div class="sidebar__search">
-                    <form action="#">
+                    <form action="" method="GET">
                         <div class="sidebar__search-input-2">
-                            <input type="text" placeholder="Search Anything">
+                            <input type="text" name="search" placeholder="Search Anything">
                             <button type="submit"><i class="far fa-search"></i></button>
                         </div>
                     </form>
