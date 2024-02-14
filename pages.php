@@ -57,21 +57,6 @@ include 'head.php';
                                     <img src="images/<?php echo $row_setting['logo']; ?>" alt="logo">
                                 </a>
                             </div>
-                            <div class="header-cat-menu ml-40">
-                                <nav>
-                                    <ul>
-                                        <li><a href="course-grid.html"> Categorie <span><i class="arrow_carrot-down"></i></span></a>
-                                            <ul class="sub-menu">
-                                                <li><a href="course-grid.html">Bangla Medium</a></li>
-                                                <li><a href="course-grid.html">English Medium</a></li>
-                                                <li><a href="course-grid.html">Video Edition</a></li>
-                                                <li><a href="course-grid.html">Logo Design</a></li>
-                                                <li><a href="course-grid.html">Francy Medium</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xxl-5 col-lg-6 col-md-7">

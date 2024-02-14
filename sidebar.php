@@ -30,14 +30,23 @@ $sql_pages->execute();
                             $nama_pages = $nama_pages . "....";
                         }
 
+                        $gambar = $row_pages['gambar'];
+                        if(empty($row_pages['gambar'])){
+                            $gambar = "tidak_ada_gambar.png";
+                        }
+
+                        if(!file_exists("images/".$row_pages['gambar'])){
+                            $gambar = "tidak_ada_di_image.png";
+                        }
+
                         ?>
                     <div class="rc__post mb-20 d-flex align-items-center">
                         <div class="rc__post-thumb">
-                            <a href="blog-details.html"><img src="images/<?php echo $row_pages['gambar']; ?>" alt="blog-sidebar"></a>
+                            <a href="post?p=<?php echo $row_pages['id']; ?>"><img src="images/<?php echo $gambar; ?>" alt="blog-sidebar"></a>
                         </div>
                         <div class="rc__post-content">
                             <h3 class="rc__post-title">
-                                <a href="blog-details.html"><?php echo $nama_pages; ?></a>
+                                <a href="post?p=<?php echo $row_pages['id']; ?>"><?php echo $nama_pages; ?></a>
                             </h3>
                             <div class="rc__meta">
                                 <span><?php echo date("d M Y", strtotime($row_pages["created_at"])); ?></span>
