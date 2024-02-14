@@ -123,7 +123,7 @@ include 'head.php';
                 <div class="col-xxl-3 col-xl-3 col-lg-6 d-flex align-items-center justify-content-end">
                     <div class="header-meta-green">
                         <ul>
-                            <li><a href="/login"><i class="fi fi-rr-user"></i></a></li>
+                            <li><a href="login"><i class="fi fi-rr-user"></i></a></li>
                             <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                         </ul>
                     </div>
