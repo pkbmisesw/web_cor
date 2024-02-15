@@ -13,8 +13,8 @@ $ket = "";
 $ketnama = "Silahkan mengisi nama";
 
 ?>
-hi : <?php echo $_SESSION['email']; ?> - 
-<a href="logout.php">Logout</a>
+hi : <?php echo $_SESSION['email']; ?> -
+<a href="../../logout">Logout</a>
 <?php
 include ("../sidebar.php");
 ?>

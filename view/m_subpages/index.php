@@ -10,7 +10,7 @@ if (isset($_SESSION['email']) == 0) {
 $template = "subpages"
 ?>
 hi : <?php echo $_SESSION['email']; ?> -
-<a href="logout.php">Logout</a>
+<a href="../../logout">Logout</a>
 <?php
 include("../sidebar.php");
 ?>

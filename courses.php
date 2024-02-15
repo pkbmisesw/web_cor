@@ -59,6 +59,19 @@ include 'navbar.php';
                 </div>
             </div>
         </div>
+        <div class="pt-50">
+            <nav>
+                <div class="nav d-flex justify-content-center mb-50" id="nav-tab" role="tablist">
+                    <?php
+                    $sql_kategori = $conn->prepare("SELECT * FROM m_kategori ORDER BY id DESC");
+                    $sql_kategori->execute();
+                    while($data_kategori = $sql_kategori->fetch()){
+                    ?>
+                    <button class="tp-course-tab" id="nav-design-tab" data-bs-toggle="tab" data-bs-target="#nav-design" type="button" role="tab" aria-controls="nav-design-tab" aria-selected="true"><?php echo $data_kategori["nama"];  ?></button>
+                    <?php } ?>
+                </div>
+            </nav>
+        </div>
         <div class="row pt-20">
             <?php
             while($data_kursus = $sql_kursus->fetch()){
@@ -76,9 +89,9 @@ include 'navbar.php';
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="tpcourse mb-40">
                         <div class="tpcourse__thumb p-relative w-img fix">
-                            <a href="course-details.html"><img src="images/<?php echo $gambar; ?>" alt="course-thumb"></a>
+                            <a href="course_details?p=<?php echo $data_kursus['id']; ?>"><img src="images/<?php echo $gambar; ?>" alt="course-thumb"></a>
                             <div class="tpcourse__tag">
-                                <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                <a href="course_details?p=<?php echo $data_kursus['id']; ?>"><i class="fi fi-rr-heart"></i></a>
                             </div>
                             <div class="tpcourse__img-icon">
                                 <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -86,7 +99,7 @@ include 'navbar.php';
                         </div>
                         <div class="tpcourse__content-2">
                             <div class="tpcourse__ava-title mb-15">
-                                <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html"><?php echo $data_kursus['nama']; ?></a></h4>
+                                <h4 class="tpcourse__title tp-cours-title-color"><a href="course_details?p=<?php echo $data_kursus['id']; ?>"><?php echo $data_kursus['nama']; ?></a></h4>
                             </div>
                             <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                 <ul class="d-flex align-items-center">
@@ -105,7 +118,7 @@ include 'navbar.php';
                                     <p>(-)</p>
                                 </div>
                                 <div class="tpcourse__pricing">
-                                    <h5 class="price-title"><?php echo "Rp " . number_format($data_kursus['harga'], 2, ',', '.') ?></h5>
+                                    <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], null, null, '.').",-" ?></h5>
                                 </div>
                             </div>
                         </div>

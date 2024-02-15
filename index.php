@@ -143,16 +143,6 @@ $row_setting = $stmt->fetch();
             </div>
             <!-- course-nav-tab-start -->
             <div class="tp-course-nav-tabs">
-                <nav>
-                    <div class="nav d-flex justify-content-center mb-50" id="nav-tab" role="tablist">
-                        <button class="tp-course-tab active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all-tab" aria-selected="true">All</button>
-                        <button class="tp-course-tab" id="nav-design-tab" data-bs-toggle="tab" data-bs-target="#nav-design" type="button" role="tab" aria-controls="nav-design-tab" aria-selected="true">Design</button>
-                        <button class="tp-course-tab" id="nav-develop-tab" data-bs-toggle="tab" data-bs-target="#nav-develop" type="button" role="tab" aria-controls="nav-develop" aria-selected="true">Devlopment</button>
-                        <button class="tp-course-tab" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="true">Content Writing</button>
-                        <button class="tp-course-tab" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search " type="button" role="tab" aria-controls="nav-search" aria-selected="true">Search Engine</button>
-                        <button class="tp-course-tab" id="nav-marketing-tab" data-bs-toggle="tab" data-bs-target="#nav-marketing" type="button" role="tab" aria-controls="nav-marketing" aria-selected="false">Marketing</button>
-                    </div>
-                </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
                         <div class="row">
@@ -174,17 +164,14 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="images/<?php echo $gambar; ?>" alt="course-thumb"></a>
+                                        <a href="course_details?p=<?php echo $data_kursus['id']; ?>"><img src="images/<?php echo $gambar; ?>" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
-                                        </div>
-                                        <div class="tpcourse__img-icon">
-                                            <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
+                                            <a href="course_details?p=<?php echo $data_kursus['id']; ?>"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                     </div>
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html"><?php echo $data_kursus['nama']; ?></a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course_details?p=<?php echo $data_kursus['id']; ?>"><?php echo $data_kursus['nama']; ?></a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -203,7 +190,7 @@ $row_setting = $stmt->fetch();
                                                 <p>(-)</p>
                                             </div>
                                             <div class="tpcourse__pricing">
-                                                <h5 class="price-title"><?php echo "Rp " . number_format($data_kursus['harga'], 2, ',', '.') ?></h5>
+                                                <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], null, null, '.').",-" ?></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -217,9 +204,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-04.png" alt="course-avata">
@@ -228,12 +215,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-yellow" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">WordPress 2022: The Complete WordPress Website Course</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">WordPress 2022: The Complete WordPress Website Course</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -261,9 +248,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-05.png" alt="course-avata">
@@ -272,12 +259,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">SEO</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Data</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">SEO</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Data</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -305,9 +292,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-06.png" alt="course-avata">
@@ -316,12 +303,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-blue" href="course-details.html">Webflow</a></li>
-                                                <li><a class="c-color-purple" href="course-details.html">UX/UI</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Webflow</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">UX/UI</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -349,9 +336,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -360,12 +347,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-yellow" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -393,9 +380,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
@@ -404,12 +391,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                                                <li><a class="c-color-blue" href="course-details.html">Content</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Write</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Content</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">How to Write Great Web Content - Better Search Rankings!</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -437,9 +424,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
@@ -448,12 +435,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">Coding</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -485,9 +472,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -496,12 +483,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-yellow" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -529,9 +516,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
@@ -540,12 +527,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                                                <li><a class="c-color-blue" href="course-details.html">Content</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Write</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Content</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">How to Write Great Web Content - Better Search Rankings!</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -573,9 +560,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
@@ -584,12 +571,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">Coding</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -617,9 +604,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-04.png" alt="course-avata">
@@ -628,12 +615,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-yellow" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">WordPress 2022: The Complete WordPress Website Course</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">WordPress 2022: The Complete WordPress Website Course</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -661,9 +648,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-05.png" alt="course-avata">
@@ -672,12 +659,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">SEO</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Data</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">SEO</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Data</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -705,9 +692,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-06.png" alt="course-avata">
@@ -716,12 +703,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-blue" href="course-details.html">Webflow</a></li>
-                                                <li><a class="c-color-purple" href="course-details.html">UX/UI</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Webflow</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">UX/UI</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -753,9 +740,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-06.png" alt="course-avata">
@@ -764,12 +751,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-blue" href="course-details.html">Webflow</a></li>
-                                                <li><a class="c-color-purple" href="course-details.html">UX/UI</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Webflow</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">UX/UI</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -797,9 +784,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -808,12 +795,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-yellow" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -841,9 +828,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-05.png" alt="course-avata">
@@ -852,12 +839,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">SEO</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Data</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">SEO</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Data</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -885,9 +872,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
@@ -896,12 +883,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                                                <li><a class="c-color-blue" href="course-details.html">Content</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Write</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Content</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">How to Write Great Web Content - Better Search Rankings!</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -929,9 +916,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-04.png" alt="course-avata">
@@ -940,12 +927,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-yellow" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">WordPress 2022: The Complete WordPress Website Course</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">WordPress 2022: The Complete WordPress Website Course</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -973,9 +960,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
@@ -984,12 +971,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">Coding</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1021,9 +1008,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
@@ -1032,12 +1019,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">Coding</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1065,9 +1052,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-04.png" alt="course-avata">
@@ -1076,12 +1063,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-yellow" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">WordPress 2022: The Complete WordPress Website Course</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">WordPress 2022: The Complete WordPress Website Course</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1109,9 +1096,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
@@ -1120,12 +1107,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                                                <li><a class="c-color-blue" href="course-details.html">Content</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Write</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Content</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">How to Write Great Web Content - Better Search Rankings!</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1153,9 +1140,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-05.png" alt="course-avata">
@@ -1164,12 +1151,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">SEO</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Data</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">SEO</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Data</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1197,9 +1184,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-06.png" alt="course-avata">
@@ -1208,12 +1195,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-blue" href="course-details.html">Webflow</a></li>
-                                                <li><a class="c-color-purple" href="course-details.html">UX/UI</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Webflow</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">UX/UI</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1241,9 +1228,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -1252,12 +1239,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-yellow" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1289,9 +1276,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-06.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-06.png" alt="course-avata">
@@ -1300,12 +1287,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-blue" href="course-details.html">Webflow</a></li>
-                                                <li><a class="c-color-purple" href="course-details.html">UX/UI</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Webflow</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">UX/UI</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Complete Web Design from Figma to Webflow to Freelancing</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1333,9 +1320,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-05.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-05.png" alt="course-avata">
@@ -1344,12 +1331,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">SEO</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Data</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">SEO</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Data</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">SEO: Structured Data & Schema Markup for Webmasters</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1377,9 +1364,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
@@ -1388,12 +1375,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-yellow" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__ava-title mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1421,9 +1408,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
@@ -1432,12 +1419,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                                                <li><a class="c-color-blue" href="course-details.html">Content</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Write</a></li>
+                                                <li><a class="c-color-blue" href="course-details.php">Content</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">How to Write Great Web Content - Better Search Rankings!</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1465,9 +1452,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
@@ -1476,12 +1463,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                                                <li><a class="c-color-red" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-purple" href="course-details.php">Coding</a></li>
+                                                <li><a class="c-color-red" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
@@ -1509,9 +1496,9 @@ $row_setting = $stmt->fetch();
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="tpcourse mb-40">
                                     <div class="tpcourse__thumb p-relative w-img fix">
-                                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
+                                        <a href="course-details.php"><img src="web_assets/img/course/course-thumb-04.jpg" alt="course-thumb"></a>
                                         <div class="tpcourse__tag">
-                                            <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
+                                            <a href="course-details.php"><i class="fi fi-rr-heart"></i></a>
                                         </div>
                                         <div class="tpcourse__img-icon">
                                             <img src="web_assets/img/icon/course-avata-04.png" alt="course-avata">
@@ -1520,12 +1507,12 @@ $row_setting = $stmt->fetch();
                                     <div class="tpcourse__content-2">
                                         <div class="tpcourse__category mb-10">
                                             <ul class="tpcourse__price-list d-flex align-items-center">
-                                                <li><a class="c-color-green" href="course-details.html">Design</a></li>
-                                                <li><a class="c-color-yellow" href="course-details.html">Development</a></li>
+                                                <li><a class="c-color-green" href="course-details.php">Design</a></li>
+                                                <li><a class="c-color-yellow" href="course-details.php">Development</a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">WordPress 2022: The Complete WordPress Website Course</a></h4>
+                                            <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.php">WordPress 2022: The Complete WordPress Website Course</a></h4>
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">

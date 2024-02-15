@@ -7,6 +7,7 @@ session_start();
 $op = $_GET['op'];
 if($op == "edit"){
         $id = $_POST['id'];
+        $id_kat = $_POST['id_kat'];
         $nama = $_POST['nama'];
         $des = $_POST['des'];
         $harga = $_POST['harga'];
@@ -18,6 +19,7 @@ if($op == "edit"){
 
             if($isUploading) {
                 $sql = "UPDATE m_kursus SET 
+                id_kat = :id_kat,
                 nama = :nama, 
                 des = :des, 
                 harga = :harga, 
@@ -32,6 +34,7 @@ if($op == "edit"){
                 $data = getid($id);
 
                 $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':id_kat', $id_kat);
                 $stmt->bindParam(':nama', $nama);
                 $stmt->bindParam(':des', $des);
                 $stmt->bindParam(':harga', $harga);
@@ -54,6 +57,7 @@ if($op == "edit"){
             }
 
             $sql = "UPDATE m_kursus SET 
+                id_kat = :id_kat, 
                 nama = :nama, 
                 des = :des, 
                 harga = :harga, 
@@ -61,6 +65,7 @@ if($op == "edit"){
                 WHERE id = $id";
 
             $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id_kat', $id_kat);
             $stmt->bindParam(':nama', $nama);
             $stmt->bindParam(':des', $des);
             $stmt->bindParam(':harga', $harga);

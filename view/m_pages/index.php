@@ -14,7 +14,7 @@ $ketnama = "Silahkan mengisi nama";
 
 ?>
 hi : <?php echo $_SESSION['email']; ?> -
-<a href="logout.php">Logout</a>
+<a href="../../logout">Logout</a>
 <?php
 include("../sidebar.php");
 ?>
