@@ -18,6 +18,10 @@ if(empty($data_course['pic'])){
 if(!file_exists("images/".$data_course['pic'])){
     $gambar = "tidak_ada_di_image.png";
 }
+
+$sql_kategori = $conn->prepare("SELECT * FROM m_kategori WHERE id=:id_kat");
+$sql_kategori->execute([":id_kat" => $data_course['id_kat']]);
+$data_kategori = $sql_kategori->fetch();
 ?>
 
 <?php
@@ -50,27 +54,6 @@ include 'navbar.php';
 
    <main>
 
-      <!-- breadcrumb-area -->
-      <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay" data-background="web_assets/img/breadcrumb/breadcrumb-bg-1.jpg">
-         <div class="container">
-            <div class="row">
-               <div class="col-xxl-12">
-                  <div class="breadcrumb__content p-relative z-index-1">
-                     <h3 class="breadcrumb__title mb-20">Course Details</h3>
-                     <div class="breadcrumb__list">
-                        <span><a href="index.html">Home</a></span>
-                        <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                        <span><a href="course-list.html">Courses</a></span>
-                        <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                        <span class="sub-page-black">Course Details</span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- breadcrumb-area-end -->
-
       <!-- course-details-area -->
       <section class="c-details-area pt-120 pb-50 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
          <div class="container">
@@ -87,8 +70,7 @@ include 'navbar.php';
                      <div class="course-details-content mb-45">
                         <div class="tpcourse__category mb-15">
                            <ul class="tpcourse__price-list d-flex align-items-center">
-                              <li><a class="c-color-green" href="#">-</a></li>
-                              <li><a class="c-color-yellow" href="#">-</a></li>
+                              <li><a class="c-color-yellow" href="#"><?php echo $data_kategori['nama']; ?></a></li>
                            </ul>
                         </div>
                         <div class="tpcourse__ava-title mb-25">
