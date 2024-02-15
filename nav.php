@@ -78,7 +78,7 @@
                         <div class="header-right d-flex align-items-center">
                             <div class="header-meta header-meta-white">
                                 <ul>
-                                    <li><a href="/login" class="d-none d-md-block"><i class="fi fi-rr-user"></i></a></li>
+                                    <li><a href="login" class="d-none d-md-block"><i class="fi fi-rr-user"></i></a></li>
                                     <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                                 </ul>
                             </div>
