@@ -56,7 +56,7 @@ while($data=$sql->fetch()) {
 		<td><?php echo $count; ?></td>
 		<td><?php echo $dataKategori['nama']; ?></td>
 		<td><?php echo $data['nama'];?></td>
-		<td><?php echo $data['harga'];?></td>
+		<td><?php echo "Rp. " . number_format($data['harga'], 0, null, '.').",-" ?></td>
         <td><a href='../../images/<?php echo $data['pic'];?>'>Lihat</a></td>
 		<td>
 		<a href="edit.php?id=<?php echo $data['id'];?>">Edit</a>

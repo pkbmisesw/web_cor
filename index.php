@@ -190,7 +190,7 @@ $row_setting = $stmt->fetch();
                                                 <p>(-)</p>
                                             </div>
                                             <div class="tpcourse__pricing">
-                                                <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], null, null, '.').",-" ?></h5>
+                                                <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], 0, null, '.').",-" ?></h5>
                                             </div>
                                         </div>
                                     </div>

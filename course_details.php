@@ -1,5 +1,11 @@
 <?php
 include 'config.php';
+error_reporting(0);
+
+$sql_setting = "SELECT * FROM setting ORDER BY id DESC";
+$stmt = $conn->prepare($sql_setting);
+$stmt->execute();
+$row_setting = $stmt->fetch();
 
 $id_course = $_GET['p'];
 
@@ -98,108 +104,44 @@ include 'navbar.php';
                         <h5 class="tp-c-details-title mb-20">About This Course</h5>
                          <p><?php echo $data_course['des']; ?></p>
                      </div>
-                     <div class="cor-details-instructor mb-40">
-                        <h4 class="tp-c-details-title mb-40">Instructor</h4>
-                        <div class="course-instructor-details d-flex f-wrap align-items-center">
-                           <div class="course-avata mr-30 mb-20">
-                              <img src="web_assets/img/course/c-details-ava-thumb-01.jpg" alt="avata-thumb">
-                           </div>
-                           <div class="course-avatar-details mb-20">
-                              <h5 class="c-avata-title mb-10">Hossain Mahmud</h5>
-                              <p>Award Winning Chemical & User Interface Design Training</p>
-                              <div class="c-details-list mb-5">
-                                 <ul class="d-flex align-items-center">
-                                    <li>
-                                       <div class="rating-gold d-flex align-items-center">
-                                          <p>4.7</p>
-                                          <i class="fi fi-ss-star"></i>
-                                          <i class="fi fi-ss-star"></i>
-                                          <i class="fi fi-ss-star"></i>
-                                          <i class="fi fi-ss-star"></i>
-                                          <i class="fi fi-rs-star"></i>
-                                          <span>(125)</span>
-                                       </div>
-                                    </li>
-                                    <li><img src="web_assets/img/icon/c-details-01.png" alt="meta-icon"><span>35 Classes</span></li>
-                                 </ul>
+                      <div class="accordion" id="accordionPanelsStayOpenExample">
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                      Accordion Item #1
+                                  </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                  <div class="accordion-body">
+                                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                  </div>
                               </div>
-                              <div class="c-details-stu">
-                                 <ul>
-                                    <li class="d-flex align-items-center"><img src="web_assets/img/icon/c-details-02.png" alt="meta-icon"> <span>2,35,687 Students</span></li>
-                                 </ul>
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                      Accordion Item #2
+                                  </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                  <div class="accordion-body">
+                                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                  </div>
                               </div>
-                           </div>
-                        </div>
-                        <p>Synergistically foster 24/7 leadership rather than scalable platforms. Conveniently visualize installed base products before interactive results. Collaboratively restore corporate experiences and open-source applications. Proactively mesh cooperative growth strategies.</p>
-                     </div>
-                     <div class="c-details-review pb-15">
-                        <div class="c-review-title-wrapper">
-                           <h5 class="c-review-title mb-40">Review</h5>
-                        </div>
-                        <div class="course-reviewer-item-wrapper">
-                           <div class="course-reviewer-item d-flex mb-25">
-                              <div class="course-review-ava">
-                                 <img src="web_assets/img/icon/c-details-avata-01.png" alt="details-avata">
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                      Accordion Item #3
+                                  </button>
+                              </h2>
+                              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                  <div class="accordion-body">
+                                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                  </div>
                               </div>
-                              <div class="course-review-content p-relative">
-                                 <h5 class="course-ava-title mb-15">Brooklyn Simmons</h5>
-                                 <div class="tpcourse__rating-icon d-flex align-items-center mb-10">
-                                    <i class="fi fi-ss-star"></i>
-                                    <i class="fi fi-ss-star"></i>
-                                    <i class="fi fi-ss-star"></i>
-                                    <i class="fi fi-ss-star"></i>
-                                    <i class="fi fi-rs-star"></i>
-                                 </div>
-                                 <p>Synergistically foster 24/7 leadership rather than scalable platforms. Conveniently visualize installed base products before interactive results. Collaboratively restore corporate experiences and open-source applications.</p>
-                                 <div class="c-reviewer-time">
-                                    <span>a week ago</span>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="course-reviewer-item-wrapper mb-25">
-                              <div class="course-reviewer-item d-flex">
-                                 <div class="course-review-ava">
-                                    <img src="web_assets/img/icon/c-details-avata-02.png" alt="details-avata">
-                                 </div>
-                                 <div class="course-review-content p-relative">
-                                    <h5 class="course-ava-title mb-15">Leslie Alexander</h5>
-                                    <div class="tpcourse__rating-icon d-flex align-items-center mb-10">
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-rs-star"></i>
-                                    </div>
-                                    <p>Synergistically foster 24/7 leadership rather than scalable platforms. Conveniently visualize installed base products before interactive results. Collaboratively restore corporate experiences and open-source applications.</p>
-                                    <div class="c-reviewer-time">
-                                       <span>a week ago</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="course-reviewer-item-wrapper mb-25">
-                              <div class="course-reviewer-item d-flex">
-                                 <div class="course-review-ava">
-                                    <img src="web_assets/img/icon/c-details-avata-03.png" alt="details-avata">
-                                 </div>
-                                 <div class="course-review-content p-relative">
-                                    <h5 class="course-ava-title mb-15">Dianne Russell</h5>
-                                    <div class="tpcourse__rating-icon d-flex align-items-center mb-10">
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-ss-star"></i>
-                                       <i class="fi fi-rs-star"></i>
-                                    </div>
-                                    <p>Synergistically foster 24/7 leadership rather than scalable platforms. Conveniently visualize installed base products before interactive results. Collaboratively restore corporate experiences and open-source applications.</p>
-                                    <div class="c-reviewer-time">
-                                       <span>a week ago</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                          </div>
+                      </div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-12">
@@ -212,7 +154,7 @@ include 'navbar.php';
                      </div>
                      <div class="course-details-widget">
                         <div class="cd-video-price">
-                           <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], null, null, '.').",-" ?></h3>
+                           <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-" ?></h3>
                            <div class="cd-pricing-btn text-center mb-30">
                               <a class="tp-vp-btn" href="#">Add To Cart</a>
                               <a class="tp-vp-btn-green" href="#">Enroll Now</a>
@@ -244,315 +186,11 @@ include 'navbar.php';
       </section>
       <!-- course-details-area-end -->
 
-      <!-- course-area -->
-      <section class="course-area mb-80">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="section-title mb-65">
-                     <h2 class="tp-section-title mb-20">Related Courses</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xl-4 col-lg-6 col-md-6">
-                  <div class="tpcourse mb-40 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".3s">
-                     <div class="tpcourse__thumb p-relative w-img fix">
-                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-01.jpg" alt="course-thumb"></a>
-                        <div class="tpcourse__tag">
-                           <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
-                        </div>
-                        <div class="tpcourse__img-icon">
-                           <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
-                        </div>
-                     </div>
-                     <div class="tpcourse__content-2">
-                        <div class="tpcourse__category mb-10">
-                           <ul class="tpcourse__price-list d-flex align-items-center">
-                              <li><a class="c-color-yellow" href="#">-</a></li>
-                              <li><a class="c-color-red" href="#">-</a></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__ava-title mb-15">
-                           <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Master Web Design in Adobe XD: Complete UI/UX Masterclass</a></h4>
-                        </div>
-                        <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
-                           <ul class="d-flex align-items-center">
-                              <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>35 Classes</span></li>
-                              <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>291 Students</span></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__rating d-flex align-items-center justify-content-between">
-                           <div class="tpcourse__rating-icon">
-                              <span>4.7</span>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-rs-star"></i>
-                              <p>(125)</p>
-                           </div>
-                           <div class="tpcourse__pricing">
-                              <h5 class="price-title">$29.99</h5>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-md-6">
-                  <div class="tpcourse mb-40 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".5s">
-                     <div class="tpcourse__thumb p-relative w-img fix">
-                        <a href="#"><img src="web_assets/img/course/course-thumb-02.jpg" alt="course-thumb"></a>
-                        <div class="tpcourse__tag">
-                           <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
-                        </div>
-                        <div class="tpcourse__img-icon">
-                           <img src="web_assets/img/icon/course-avata-02.png" alt="course-avata">
-                        </div>
-                     </div>
-                     <div class="tpcourse__content-2">
-                        <div class="tpcourse__category mb-10">
-                           <ul class="tpcourse__price-list d-flex align-items-center">
-                              <li><a class="c-color-green" href="course-details.html">Write</a></li>
-                              <li><a class="c-color-blue" href="course-details.html">Content</a></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__avatar mb-15">
-                           <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">How to Write Great Web Content - Better Search Rankings!</a></h4>
-                        </div>
-                        <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
-                           <ul class="d-flex align-items-center">
-                              <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>35 Classes</span></li>
-                              <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>291 Students</span></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__rating d-flex align-items-center justify-content-between">
-                           <div class="tpcourse__rating-icon">
-                              <span>4.7</span>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-rs-star"></i>
-                              <p>(125)</p>
-                           </div>
-                           <div class="tpcourse__pricing">
-                              <h5 class="price-title">$29.99</h5>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-6 col-md-6">
-                  <div class="tpcourse mb-40 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".7s">
-                     <div class="tpcourse__thumb p-relative w-img fix">
-                        <a href="course-details.html"><img src="web_assets/img/course/course-thumb-03.jpg" alt="course-thumb"></a>
-                        <div class="tpcourse__tag">
-                           <a href="course-details.html"><i class="fi fi-rr-heart"></i></a>
-                        </div>
-                        <div class="tpcourse__img-icon">
-                           <img src="web_assets/img/icon/course-avata-03.png" alt="course-avata">
-                        </div>
-                     </div>
-                     <div class="tpcourse__content-2">
-                        <div class="tpcourse__category mb-10">
-                           <ul class="tpcourse__price-list d-flex align-items-center">
-                              <li><a class="c-color-purple" href="course-details.html">Coding</a></li>
-                              <li><a class="c-color-red" href="course-details.html">Development</a></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__avatar d-flex align-items-center mb-15">
-                           <h4 class="tpcourse__title tp-cours-title-color"><a href="course-details.html">Dreamweaver - Coding your first website using Dreamweaver</a></h4>
-                        </div>
-                        <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
-                           <ul class="d-flex align-items-center">
-                              <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>35 Classes</span></li>
-                              <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>291 Students</span></li>
-                           </ul>
-                        </div>
-                        <div class="tpcourse__rating d-flex align-items-center justify-content-between">
-                           <div class="tpcourse__rating-icon">
-                              <span>4.7</span>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-ss-star"></i>
-                              <i class="fi fi-rs-star"></i>
-                              <p>(125)</p>
-                           </div>
-                           <div class="tpcourse__pricing">
-                              <h5 class="price-title">$29.99</h5>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- course-area-end -->
-
-      <!-- counter-area -->
-      <section class="tp-counter-area theme-bg pt-90 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-         <div class="counter-b-border">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-3 col-md-6">
-                     <div class="counter-item mb-70">
-                        <div class="counter-item__content counter-white-text">
-                           <h4 class="counter-item__title counter-left-title"><span class="counter">276</span>K</h4>
-                           <p>Worldwide Students</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-6">
-                     <div class="counter-item mb-70">
-                        <div class="counter-item__content counter-white-text">
-                           <h4 class="counter-item__title counter-left-title"><span class="counter">23</span>+</h4>
-                           <p>Years Experience</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-6">
-                     <div class="counter-item mb-70">
-                        <div class="counter-item__content counter-white-text">
-                           <h4 class="counter-item__title counter-left-title"><span class="counter">735</span>+</h4>
-                           <p>Professional Courses</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-6">
-                     <div class="counter-item mb-70">
-                        <div class="counter-item__content counter-white-text">
-                           <h4 class="counter-item__title counter-left-title"><span class="counter">4.7</span>K+</h4>
-                           <p>Beautiful Review</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- counter-area-end -->
-
    </main>
 
-   <!-- footer-area -->
-   <footer>
-      <div class="footer-bg theme-bg bg-bottom" data-background="web_assets/img/bg/shape-bg-02.png">
-         <div class="f-border pt-115 pb-70">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-2 col-md-4  col-6">
-                     <div class="footer-widget footer-3-col-1 mb-50">
-                        <div class="footer-widget__text mb-35">
-                           <h3 class="footer-widget__title">About</h3>
-                        </div>
-                        <div class="footer-widget__link">
-                           <ul>
-                              <li><a href="#">About us</a></li>
-                              <li><a href="#">Blog</a></li>
-                              <li><a href="#">Careers</a></li>
-                              <li><a href="#">Jobs</a></li>
-                              <li><a href="#">In Press</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-4 col-6">
-                     <div class="footer-widget footer-3-col-2 mb-50">
-                        <div class="footer-widget__text mb-35">
-                           <h3 class="footer-widget__title">Quick Links</h3>
-                        </div>
-                        <div class="footer-widget__link">
-                           <ul>
-                              <li><a href="#">Refund Policy</a></li>
-                              <li><a href="#">Documentation</a></li>
-                              <li><a href="#">Chat online</a></li>
-                              <li><a href="#">Order Cancel</a></li>
-                              <li><a href="#">Privacy Policy</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-md-4 col-6">
-                     <div class="footer-widget footer-3-col-3 mb-50">
-                        <div class="footer-widget__text mb-35">
-                           <h3 class="footer-widget__title">Support</h3>
-                        </div>
-                        <div class="footer-widget__link">
-                           <ul>
-                              <li><a href="#">Contact us</a></li>
-                              <li><a href="#">Online Chat</a></li>
-                              <li><a href="#">Whatsapp</a></li>
-                              <li><a href="#">Telegram</a></li>
-                              <li><a href="#">Ticketing</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-md-4 col-6">
-                     <div class="footer-widget footer-3-col-4 mb-50">
-                        <div class="footer-widget__text mb-35">
-                           <h3 class="footer-widget__title">FAQ</h3>
-                        </div>
-                        <div class="footer-widget__link">
-                           <ul>
-                              <li><a href="#">Account</a></li>
-                              <li><a href="#">Deliveries</a></li>
-                              <li><a href="#">Orders</a></li>
-                              <li><a href="#">Payments</a></li>
-                              <li><a href="#">Return</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-md-4 col-6">
-                     <div class="footer-widget footer-3-col-5 mb-50">
-                        <div class="footer-widget__text mb-35">
-                           <h3 class="footer-widget__title">Products</h3>
-                        </div>
-                        <div class="footer-widget__link">
-                           <ul>
-                              <li><a href="#">Overview</a></li>
-                              <li><a href="#">Business Account</a></li>
-                              <li><a href="#">Credit Card</a></li>
-                              <li><a href="#">Integrations</a></li>
-                              <li><a href="#">Rewards</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="f-copyright pt-60 pb-40">
-            <div class="container">
-               <div class="row text-center text-lg-start">
-                  <div class="col-xl-3 col-lg-3">
-                     <div class="f-copyright__logo mb-30">
-                        <a href="#"><img src="web_assets/img/logo/logo.png" alt="logo"></a>
-                     </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-5">
-                     <div class="f-copyright__text text-center mb-30">
-                        <span>Uxaction© 2022, All Rights Reserved</span>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-4">
-                     <div class="f-copyright__social-area mb-20 text-lg-end">
-                        <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fi fi-rr-basketball"></i></a>
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </footer>
-   <!-- footer-area-end -->         
+<?php
+include 'footer.php';
+?>
 
 
 

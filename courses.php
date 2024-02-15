@@ -13,10 +13,31 @@ $left_limit = ($paging>1) ? ($paging * 6) - 6 : 0;
 $next = $paging + 1;
 $previous = $paging - 1;
 
-$sql_kursus_all = $conn->prepare("SELECT * FROM m_kursus ORDER BY id DESC");
+$id_kategori = $_GET['category'];
+$url = "";
+$loop = 1;
+
+foreach($_GET as $get_key => $get_value){
+    if($get_key != "p")
+    $url .= ($loop<count($_GET)) ? $get_key."=".$get_value."&" : $get_key."=".$get_value;
+    $loop++;
+}
+
+
+
+$sql = "SELECT * FROM m_kursus ";
+$sql_kursus_all = (isset($id_kategori)) ? $conn->prepare($sql . "WHERE id_kat=:id_kat ORDER BY id DESC") : $conn->prepare($sql . "ORDER BY id DESC");
+if(isset($id_kategori)){
+    $sql_kursus_all->bindValue(":id_kat", $id_kategori);
+}
+
 if($_GET['search']){
-    $sql_kursus_all = $conn->prepare("SELECT * FROM m_kursus WHERE nama LIKE :nama ORDER BY id DESC");
-    $sql_kursus_all->bindValue(":nama", "%".$_GET['search']."%", PDO::PARAM_STR);
+    $sql_kursus_all = (isset($id_kategori)) ? $conn->prepare($sql . "WHERE nama LIKE :search AND id_kat=:id_kat ORDER BY id DESC") : $conn->prepare($sql . "WHERE nama LIKE :search ORDER BY id DESC");
+    if(isset($id_kategori)){
+        $sql_kursus_all->bindValue(":id_kat", $id_kategori);
+    }
+
+    $sql_kursus_all->bindValue(":search", "%".$_GET['search']."%", PDO::PARAM_STR);
 }
 
 $sql_kursus_all->execute();
@@ -33,10 +54,17 @@ include 'navbar.php';
 <!-- Pagination Start -->
 <div class="pt-105 pb-120">
     <?php
-    $sql_kursus = $conn->prepare("SELECT * FROM m_kursus ORDER BY id DESC LIMIT :left_limit,:right_limit");
+    $sql_kursus = (isset($id_kategori)) ? $conn->prepare("SELECT * FROM m_kursus WHERE id_kat=:id_kat ORDER BY id DESC LIMIT :left_limit,:right_limit") : $conn->prepare("SELECT * FROM m_kursus ORDER BY id DESC LIMIT :left_limit,:right_limit");
+    if(isset($id_kategori)){
+        $sql_kursus->bindValue(":id_kat", $id_kategori);
+    }
 
     if ($_GET['search']) {
-        $sql_kursus = $conn->prepare("SELECT * FROM m_kursus WHERE nama LIKE :search ORDER BY id DESC LIMIT :left_limit,:right_limit");
+        $sql_kursus = (isset($id_kategori)) ? $conn->prepare("SELECT * FROM m_kursus WHERE nama LIKE :search AND id_kat=:id_kat ORDER BY id DESC LIMIT :left_limit,:right_limit") : $conn->prepare("SELECT * FROM m_kursus WHERE nama LIKE :search ORDER BY id DESC LIMIT :left_limit,:right_limit");
+        if(isset($id_kategori)){
+            $sql_kursus->bindValue(":id_kat", $id_kategori);
+        }
+
         $sql_kursus->bindValue(":search", "%" . $_GET['search'] . "%", PDO::PARAM_STR);
     }
 
@@ -52,6 +80,9 @@ include 'navbar.php';
                 <div class="header-search-box">
                     <form action="" method="GET">
                         <div class="search-input">
+                            <?php if(isset($id_kategori)){ ?>
+                            <input type="hidden" name="category" value='<?php echo urlencode($id_kategori); ?>'>
+                            <?php } ?>
                             <input type="text" name="search" placeholder="What you want to learn?">
                             <button class="header-search-btn"><i class="fi fi-rs-search mr-5"></i></button>
                         </div>
@@ -67,7 +98,7 @@ include 'navbar.php';
                     $sql_kategori->execute();
                     while($data_kategori = $sql_kategori->fetch()){
                     ?>
-                    <button class="tp-course-tab" id="nav-design-tab" data-bs-toggle="tab" data-bs-target="#nav-design" type="button" role="tab" aria-controls="nav-design-tab" aria-selected="true"><?php echo $data_kategori["nama"];  ?></button>
+                        <a href="?category=<?php echo $data_kategori['id']; ?>"><button class="tp-course-tab" ><?php echo $data_kategori["nama"];  ?></button></a>
                     <?php } ?>
                 </div>
             </nav>
@@ -93,9 +124,6 @@ include 'navbar.php';
                             <div class="tpcourse__tag">
                                 <a href="course_details?p=<?php echo $data_kursus['id']; ?>"><i class="fi fi-rr-heart"></i></a>
                             </div>
-                            <div class="tpcourse__img-icon">
-                                <img src="web_assets/img/icon/course-3-avata-1.png" alt="course-avata">
-                            </div>
                         </div>
                         <div class="tpcourse__content-2">
                             <div class="tpcourse__ava-title mb-15">
@@ -118,7 +146,7 @@ include 'navbar.php';
                                     <p>(-)</p>
                                 </div>
                                 <div class="tpcourse__pricing">
-                                    <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], null, null, '.').",-" ?></h5>
+                                    <h5 class="price-title"><?php echo "Rp. " . number_format($data_kursus['harga'], 0, null, '.').",-" ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -134,10 +162,10 @@ include 'navbar.php';
     <div class="container">
         <div class="d-flex justify-content-center">
             <?php if($paging > 1){ ?>
-            <a href="courses?p=<?php echo ($_GET['search']) ? $previous . "&search=" . $_GET['search'] : $previous; ?>" class="tp-border-btn mr-30"><<</a>
+            <a href="courses?p=<?php echo $previous . "&" . $url; ?>" class="tp-border-btn mr-30"><<</a>
             <?php } ?>
             <?php if($paging < $total_paging && $total_kursus > 6){?>
-            <a href="courses?p=<?php echo ($_GET['search']) ? $next . "&search=" . $_GET['search'] : $next; ?>" class="tp-border-btn">>></a>
+            <a href="courses?p=<?php echo $next . "&". $url; ?>" class="tp-border-btn">>></a>
             <?php } ?>
         </div>
     </div>
