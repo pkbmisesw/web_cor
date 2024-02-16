@@ -68,10 +68,6 @@ include 'navbar.php';
                   <div class="c-details-wrapper mr-25">
                      <div class="c-details-thumb p-relative mb-40">
                         <img src="images/<?php echo $gambar; ?>" alt="details-bg">
-                        <div class="c-details-ava d-md-flex align-items-center">
-                           <img src="web_assets/img/course/c-details-ava-01.png" alt="avata">
-                           <span>By <a href="#">Emilia Jonas</a></span>
-                        </div>
                      </div>
                      <div class="course-details-content mb-45">
                         <div class="tpcourse__category mb-15">
@@ -174,9 +170,15 @@ include 'navbar.php';
                         </div>
                         <div class="cd-information mb-35">
                            <ul>
-                              <li><i class="fa-light fa-clock-desk"></i> <label>Duration</label> <span>- Hours</span></li>
-                              <li><i class="fi fi-sr-stats"></i> <label>Skill Level</label> <span>-</span></li>
-                              <li><i class="fi fi-rs-diploma"></i> <label>Certificate</label> <span>-</span></li>
+                               <?php
+                               $sql_count_materi = $conn->prepare("SELECT COUNT(m_materi.id) FROM m_kursus INNER JOIN m_materi ON m_kursus.id = m_materi.id_kursus WHERE m_materi.status = 1");
+                               $sql_count_materi->execute();
+                               $data_count_materi = $sql_count_materi->fetch();
+                               ?>
+                              <li><i class="fa-light fa-address-book"></i> <label>Materi</label> <span><?php echo $data_count_materi['COUNT(m_materi.id)']; ?></span></li>
+                              <li><i class="fa-light fa-clock-desk"></i> <label>Duration</label> <span><?php echo $data_course['durasi']; ?></span></li>
+                              <li><i class="fi fi-sr-stats"></i> <label>Skill Level</label> <span><?php echo $data_course['skill_level']; ?></span></li>
+                              <li><i class="fi fi-rs-diploma"></i> <label>Certificate</label> <span><?php echo ($data_course['sertifikat']) ? "Tersedia" : "Tidak Tersedia"; ?></span></li>
                            </ul>
                         </div>
                         <div class="c-details-social">
