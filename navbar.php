@@ -60,6 +60,7 @@
                     <div class="main-menu main-menu-white">
                         <nav id="mobile-menu">
                             <ul>
+                                <li><a href='./'>Home</a></li>
                                 <?php
                                 $sqlpages = $conn->prepare("SELECT * FROM m_pages ORDER BY urut ASC");
                                 $sqlpages->execute();
