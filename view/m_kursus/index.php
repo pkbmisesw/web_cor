@@ -40,6 +40,8 @@ table, td, th {
 <th>Durasi</th>
 <th>Skill Level</th>
 <th>Sertifikat</th>
+<th>Link Youtube</th>
+<th>Gambar Youtube</th>
 <th>Gambar</th>
 <th>Aksi</th>
 </tr>
@@ -63,6 +65,8 @@ while($data=$sql->fetch()) {
         <td><?php echo $data['durasi'];?></td>
         <td><?php echo $data['skill_level'];?></td>
         <td><?php echo $data['sertifikat'];?></td>
+        <td><a href="<?php echo $data['yt'];?>">Lihat</a></td>
+        <td><a href="../../images/<?php echo $data['pic_yt'];?>">Lihat</a></td>
         <td><a href='../../images/<?php echo $data['pic'];?>'>Lihat</a></td>
 		<td>
 		<a href="edit.php?id=<?php echo $data['id'];?>">Edit</a>

@@ -68,6 +68,14 @@ $data = getid($_GET['id']);
             <td><input type="text" name="sertifikat" value="<?php echo $data["sertifikat"]; ?>" ></td>
         </tr>
         <tr>
+            <td>Pic YT</td>
+            <td><input type="file" name="pic_yt" id="pic_yt" /></td>
+        </tr>
+        <tr>
+            <td>YT</td>
+            <td><input type="text" name="yt" value="<?php echo $data["yt"]; ?>" ></td>
+        </tr>
+        <tr>
             <td>
                 <input type="submit" value="Edit" />
             </td>

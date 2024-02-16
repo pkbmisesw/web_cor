@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-error_reporting(0);
+// error_reporting(0);
 
 $sql_setting = "SELECT * FROM setting ORDER BY id DESC";
 $stmt = $conn->prepare($sql_setting);
@@ -105,51 +105,64 @@ include 'navbar.php';
                          <p><?php echo $data_course['des']; ?></p>
                      </div>
                       <div class="accordion" id="accordionPanelsStayOpenExample">
-                          <div class="accordion-item">
-                              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                      Accordion Item #1
-                                  </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                  <div class="accordion-body">
-                                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          <?php
+                          $i = 0;
+                          $sql_materi = $conn->prepare("SELECT * FROM m_materi WHERE id_kursus=:id_kursus AND status=:status ORDER BY no_urut ASC");
+                          $sql_materi->execute([":id_kursus" => $id_course, ":status" => 1]);
+                          while($data_materi = $sql_materi->fetch()){
+                              if($i == 0){
+                          ?>
+                              <div class="accordion-item">
+                                  <h2 class="accordion-header" id="panelsStayOpen-heading<?php echo $data_materi['no_urut'] ?>">
+                                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>" aria-expanded="true" aria-controls="panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>">
+                                          <?php echo $data_materi['nama'] . " #" . $data_materi['no_urut']; ?>
+                                      </button>
+                                  </h2>
+                                  <div id="panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading<?php echo $data_materi['no_urut'] ?>">
+                                      <div class="accordion-body">
+                                        <ul>
+                                          <?php
+                                              $sql_materi_list = $conn->prepare("SELECT * FROM m_materi_list WHERE id_materi=:id_materi AND status=:status ORDER BY no_urut ASC");
+                                              $sql_materi_list->execute([":id_materi" => $data_materi['id'], ":status" => 1]);
+                                              while($data_materi_list = $sql_materi_list->fetch()){ ?>
+                                                  <li><a href="<?php echo $data_materi_list['url'] ?>"><i class="fa fa-airplay mr-10"></i><?php echo $data_materi_list['nama']; ?></a></li>
+                                              <?php } ?>
+                                        </ul>
+                                      </div>
                                   </div>
                               </div>
-                          </div>
-                          <div class="accordion-item">
-                              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                      Accordion Item #2
-                                  </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                  <div class="accordion-body">
-                                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                             <?php $i++;
+                              } else {?>
+                                  <div class="accordion-item">
+                                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                              <?php echo $data_materi['nama'] . " #" . $data_materi['no_urut']; ?>
+                                          </button>
+                                      </h2>
+                                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                          <div class="accordion-body">
+                                              <ul>
+                                                  <?php
+                                                  $sql_materi_list = $conn->prepare("SELECT * FROM m_materi_list WHERE id_materi=:id_materi AND status=:status ORDER BY no_urut ASC");
+                                                  $sql_materi_list->execute([":id_materi" => $data_materi['id'], ":status" => 1]);
+                                                  while($data_materi_list = $sql_materi_list->fetch()){ ?>
+                                                      <li><a href="<?php echo $data_materi_list['url'] ?>"><i class="fa fa-airplay mr-10"></i><?php echo $data_materi_list['nama']; ?></a></li>
+                                                  <?php } ?>
+                                              </ul>
+                                          </div>
+                                      </div>
                                   </div>
-                              </div>
-                          </div>
-                          <div class="accordion-item">
-                              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                      Accordion Item #3
-                                  </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                  <div class="accordion-body">
-                                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                  </div>
-                              </div>
-                          </div>
+                              <?php } ?>
+                          <?php } ?>
                       </div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-12">
                   <div class="c-details-sidebar">
                      <div class="c-video-thumb p-relative mb-25">
-                        <img src="web_assets/img/bg/c-details-video-bg.jpg" alt="video-bg">
+                        <img src="images/<?php echo $data_course['pic_yt']; ?>" alt="video-bg">
                         <div class="c-video-icon">
-                           <a class="popup-video" href="https://youtu.be/W-bgMEvrd2E"><i class="fi fi-sr-play"></i></a>
+                           <a class="popup-video" href="<?php echo $data_course['yt'] ?>"><i class="fi fi-sr-play"></i></a>
                         </div>
                      </div>
                      <div class="course-details-widget">
