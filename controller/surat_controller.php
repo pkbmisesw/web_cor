@@ -105,10 +105,10 @@ if($op == "edit"){
             $result = $stmt->execute();
 
             if(!$result){
-                echo "<script>alert('Gagal Menambahkan Surat'); document.location.href=('../view/m_surat/')</script>";
+                echo "<script>alert('Gagal Menambahkan'); document.location.href=('../view/m_surat/')</script>";
             }
 
-            echo "<script>alert('Berhasil Menambahkan Surat'); document.location.href=('../view/m_surat/')</script>";
+            echo "<script>alert('Berhasil Menambahkan'); document.location.href=('../view/m_surat/')</script>";
         }catch(PDOException $e){
             echo $e->getMessage();
         }

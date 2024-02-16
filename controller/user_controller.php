@@ -70,10 +70,10 @@ if($op == "edit"){
             $result = $stmt->execute();
 
             if(!$result){
-                echo "<script>alert('Gagal Menambahkan User'); document.location.href=('../view/m_user/')</script>";
+                echo "<script>alert('Gagal Menambahkan'); document.location.href=('../view/m_user/')</script>";
             }
 
-            echo "<script>alert('Berhasil Menambahkan User'); document.location.href=('../view/m_user/')</script>";
+            echo "<script>alert('Berhasil Menambahkan'); document.location.href=('../view/m_user/')</script>";
         }catch(PDOException $e){
             echo $e->getMessage();
         }

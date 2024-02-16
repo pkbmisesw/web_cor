@@ -58,10 +58,10 @@ if($op == "edit"){
             $result = $stmt->execute();
 
             if(!$result){
-                echo "<script>alert('Gagal Menambahkan Kategori'); document.location.href=('../view/m_kategori/')</script>";
+                echo "<script>alert('Gagal Menambahkan'); document.location.href=('../view/m_kategori/')</script>";
             }
 
-            echo "<script>alert('Berhasil Menambahkan Kategori'); document.location.href=('../view/m_kategori/')</script>";
+            echo "<script>alert('Berhasil Menambahkan'); document.location.href=('../view/m_kategori/')</script>";
         }catch(PDOException $e){
             echo $e->getMessage();
         }

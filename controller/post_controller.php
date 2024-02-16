@@ -122,10 +122,10 @@ if($op == "edit"){
             $result = $stmt->execute();
 
             if(!$result){
-                echo "<script>alert('Gagal Menambahkan Post'); document.location.href=('../view/m_post/')</script>";
+                echo "<script>alert('Gagal Menambahkan'); document.location.href=('../view/m_post/')</script>";
             }
 
-            echo "<script>alert('Berhasil Menambahkan Post'); document.location.href=('../view/m_post/')</script>";
+            echo "<script>alert('Berhasil Menambahkan'); document.location.href=('../view/m_post/')</script>";
         }catch(PDOException $e){
             echo $e->getMessage();
         }

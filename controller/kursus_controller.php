@@ -134,10 +134,10 @@ if($op == "edit"){
             $result = $stmt->execute();
 
             if(!$result){
-                echo "<script>alert('Gagal Menambahkan Kursus'); document.location.href=('../view/m_kursus/')</script>";
+                echo "<script>alert('Gagal Menambahkan'); document.location.href=('../view/m_kursus/')</script>";
             }
 
-            echo "<script>alert('Berhasil Menambahkan Kursus'); document.location.href=('../view/m_kursus/')</script>";
+            echo "<script>alert('Berhasil Menambahkan'); document.location.href=('../view/m_kursus/')</script>";
         }catch(PDOException $e){
             echo $e->getMessage();
         }
