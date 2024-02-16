@@ -56,6 +56,18 @@ $data = getid($_GET['id']);
             <td><input type="text" name="status" value="<?php echo $data["status"]; ?>" /></td>
         </tr>
         <tr>
+            <td>Durasi</td>
+            <td><input type="text" name="durasi" value="<?php echo $data["durasi"]; ?>" ></td>
+        </tr>
+        <tr>
+            <td>Skill Level</td>
+            <td><input type="text" name="skill_level" value="<?php echo $data["skill_level"]; ?>" ></td>
+        </tr>
+        <tr>
+            <td>Sertifikat</td>
+            <td><input type="text" name="sertifikat" value="<?php echo $data["sertifikat"]; ?>" ></td>
+        </tr>
+        <tr>
             <td>
                 <input type="submit" value="Edit" />
             </td>

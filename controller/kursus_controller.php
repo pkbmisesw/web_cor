@@ -13,6 +13,9 @@ if($op == "edit"){
         $harga = $_POST['harga'];
         $pic = $_FILES['pic'];
         $status = $_POST['status'];
+        $durasi = $_POST['durasi'];
+        $skill_level = $_POST['skill_level'];
+        $sertifikat = $_POST['sertifikat'];
 
         try {
             $isUploading = !empty($pic['name']);
@@ -24,7 +27,10 @@ if($op == "edit"){
                 des = :des, 
                 harga = :harga, 
                 pic = :pic, 
-                status = :status
+                status = :status,
+                durasi = :durasi,
+                skill_level = :skill_level,
+                sertifikat = :sertifikat
                 WHERE id = $id";
 
                 $baseDir = $_SERVER['DOCUMENT_ROOT'];
@@ -40,6 +46,9 @@ if($op == "edit"){
                 $stmt->bindParam(':harga', $harga);
                 $stmt->bindParam(':pic', $pic["name"]);
                 $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':durasi', $durasi);
+                $stmt->bindParam(':skill_level', $skill_level);
+                $stmt->bindParam(':sertifikat', $sertifikat);
                 $stmt->execute();
 
                 if(!(in_array($imageFileType, $allowedFileType))){
@@ -61,7 +70,10 @@ if($op == "edit"){
                 nama = :nama, 
                 des = :des, 
                 harga = :harga, 
-                status = :status
+                status = :status,
+                durasi = :durasi,
+                skill_level = :skill_level,
+                sertifikat = :sertifikat
                 WHERE id = $id";
 
             $stmt = $conn->prepare($sql);
@@ -70,6 +82,9 @@ if($op == "edit"){
             $stmt->bindParam(':des', $des);
             $stmt->bindParam(':harga', $harga);
             $stmt->bindParam(':status', $status);
+            $stmt->bindParam(':durasi', $durasi);
+            $stmt->bindParam(':skill_level', $skill_level);
+            $stmt->bindParam(':sertifikat', $sertifikat);
             $stmt->execute();
 
             if(!$stmt){

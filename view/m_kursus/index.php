@@ -37,6 +37,9 @@ table, td, th {
 <th>Kategori</th>
 <th>Nama</th>
 <th>Harga</th>
+<th>Durasi</th>
+<th>Skill Level</th>
+<th>Sertifikat</th>
 <th>Gambar</th>
 <th>Aksi</th>
 </tr>
@@ -57,6 +60,9 @@ while($data=$sql->fetch()) {
 		<td><?php echo $dataKategori['nama']; ?></td>
 		<td><?php echo $data['nama'];?></td>
 		<td><?php echo "Rp. " . number_format($data['harga'], 0, null, '.').",-" ?></td>
+        <td><?php echo $data['durasi'];?></td>
+        <td><?php echo $data['skill_level'];?></td>
+        <td><?php echo $data['sertifikat'];?></td>
         <td><a href='../../images/<?php echo $data['pic'];?>'>Lihat</a></td>
 		<td>
 		<a href="edit.php?id=<?php echo $data['id'];?>">Edit</a>

@@ -156,18 +156,13 @@ include 'navbar.php';
                         <div class="cd-video-price">
                            <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-" ?></h3>
                            <div class="cd-pricing-btn text-center mb-30">
-                              <a class="tp-vp-btn" href="#">Add To Cart</a>
                               <a class="tp-vp-btn-green" href="#">Enroll Now</a>
                            </div>
                         </div>
                         <div class="cd-information mb-35">
                            <ul>
-                              <li><i class="fa-light fa-calendars"></i> <label>Lesson</label> <span>-</span></li>
-                              <li><i class="fi fi-rr-chart-pie-alt"></i> <label>Quizess</label> <span>-</span></li>
-                              <li><i class="fi fi-rr-user"></i> <label>Students</label> <span>-</span></li>
                               <li><i class="fa-light fa-clock-desk"></i> <label>Duration</label> <span>- Hours</span></li>
                               <li><i class="fi fi-sr-stats"></i> <label>Skill Level</label> <span>-</span></li>
-                              <li><i class="fi fi-rr-comments"></i> <label>Language</label> <span>-</span></li>
                               <li><i class="fi fi-rs-diploma"></i> <label>Certificate</label> <span>-</span></li>
                            </ul>
                         </div>
