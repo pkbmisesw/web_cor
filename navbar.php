@@ -40,9 +40,9 @@
                     <div class="col-xxl-5 col-lg-6 col-md-7">
                         <div class="header-right header-right-box">
                             <div class="header-search-box">
-                                <form action="#">
+                                <form action="courses" method="GET">
                                     <div class="search-input">
-                                        <input type="Email" placeholder="What you want to learn?">
+                                        <input type="text" name="search" placeholder="What you want to learn?">
                                         <button class="header-search-btn"><i class="fi fi-rs-search mr-5"></i> Search Now</button>
                                     </div>
                                 </form>
