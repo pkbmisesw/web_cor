@@ -102,7 +102,12 @@
                 <div class="col-xxl-3 col-xl-3 col-lg-6 d-flex align-items-center justify-content-end">
                     <div class="header-meta-green">
                         <ul>
-                            <li><a href="login"><i class="fi fi-rr-user"></i></a></li>
+                            <?php if(!empty($_SESSION['email'])){ ?>
+                            <li><p class="mt-2"><?php echo $_SESSION['nama']; ?></p></li>
+                                <li><a href="#" style="background-color: var(--tp-border-2);"><i class="fi fi-rr-user" style="color: #fff;"></i></a></li>
+                            <?php }else{ ?>
+                            <li><a href="logina"><i class="fi fi-rr-user"></i></a></li>
+                            <?php } ?>
                             <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                         </ul>
                     </div>

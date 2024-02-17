@@ -165,7 +165,7 @@ include 'navbar.php';
                         <div class="cd-video-price">
                            <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-" ?></h3>
                            <div class="cd-pricing-btn text-center mb-30">
-                              <a class="tp-vp-btn-green" href="#">Enroll Now</a>
+                              <a class="tp-vp-btn-green" href="<?php echo (!empty($_SESSION['email'])) ? "index.php" : "logina"; ?>">Enroll Now</a>
                            </div>
                         </div>
                         <div class="cd-information mb-35">

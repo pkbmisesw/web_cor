@@ -79,7 +79,11 @@
                         <div class="header-right d-flex align-items-center">
                             <div class="header-meta header-meta-white">
                                 <ul>
-                                    <li><a href="login"><i class="fi fi-rr-user"></i></a></li>
+                                    <?php if(!empty($_SESSION['email'])){ ?>
+                                        <li><a href="#" style="background-color: var(--tp-border-2);"><i class="fi fi-rr-user" style="color: #fff;"></i></a></li>
+                                    <?php }else{ ?>
+                                        <li><a href="logina"><i class="fi fi-rr-user"></i></a></li>
+                                    <?php } ?>
                                     <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                                 </ul>
                             </div>
