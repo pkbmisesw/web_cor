@@ -131,8 +131,8 @@ include 'navbar.php';
                             </div>
                             <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                 <ul class="d-flex align-items-center">
-                                    <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>-</span></li>
-                                    <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>-</span></li>
+                                    <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"><a href="<?php echo $data_kursus['yt']; ?>"><span>Lihat</span></a></li>
+                                    <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"><a href="<?php echo $data_kursus['url_pengajar']; ?>"><span><?php echo $data_kursus['pengajar']; ?></span></a></li>
                                 </ul>
                             </div>
                             <div class="tpcourse__rating d-flex align-items-center justify-content-between">

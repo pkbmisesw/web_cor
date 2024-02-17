@@ -17,7 +17,7 @@ $template = "post";
 <form action="../../controller/<?php echo $template; ?>_controller.php?op=tambah" method="post">
     <table>
         <tr>
-            <td>Title</td>
+            <td>Nama</td>
             <td><input type="text" name="title"></td>
         </tr>
         <tr>

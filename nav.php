@@ -79,7 +79,7 @@
                         <div class="header-right d-flex align-items-center">
                             <div class="header-meta header-meta-white">
                                 <ul>
-                                    <li><a href="login" class="d-none d-md-block"><i class="fi fi-rr-user"></i></a></li>
+                                    <li><a href="login"><i class="fi fi-rr-user"></i></a></li>
                                     <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                                 </ul>
                             </div>
@@ -90,4 +90,21 @@
         </div>
     </div>
 </header>
+<div class="tp-sidebar-menu">
+    <button class="sidebar-close"><i class="icon_close"></i></button>
+    <div class="side-logo mb-30">
+        <a href="./"><img src="images/<?php echo $row_setting['logo']; ?>" alt="logo"></a>
+    </div>
+    <div class="mobile-menu"></div>
+    <div class="sidebar-info">
+        <h4 class="mb-15">Contact Info</h4>
+        <ul class="side_circle">
+            <li><?php echo $row_setting['alamat']; ?></li>
+            <li><a href="mailto:<?php echo $row_setting['email']; ?>"><?php echo $row_setting['email']; ?></a></li>
+        </ul>
+        <div class="side-social">
+            <a href="https://wa.me/<?php echo $row_setting['wa'] ?>?text=<?php echo $row_setting['kata_wa']; ?>"><i class="fab fa-whatsapp mr-5"></i>Message Us</a>
+        </div>
+    </div>
+</div>
 <!-- header area end -->

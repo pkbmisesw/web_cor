@@ -22,8 +22,12 @@ $pageData = getid($_GET['id']);
     <table>
         <input type="hidden" name="id" value='<?php echo $_GET["id"]; ?>' />
         <tr>
-            <td>Title</td>
+            <td>Nama</td>
             <td><input type="text" name="title" value="<?= $pageData['nama']; ?>">
+        </tr>
+        <tr>
+            <td>Des</td>
+            <td><textarea type="textbox" name="des"><?= $pageData['des']; ?></textarea>
         </tr>
         <tr>
             <td>Gambar</td>

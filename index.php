@@ -14,28 +14,6 @@ $row_setting = $stmt->fetch();
   include 'nav.php'; 
 ?>
 
-
-<div class="tp-sidebar-menu">
-    <button class="sidebar-close"><i class="icon_close"></i></button>
-    <div class="side-logo mb-30">
-        <a href="index.html"><img src="web_assets/img/logo/logo-black.png" alt="logo"></a>
-    </div>
-    <div class="mobile-menu"></div>
-    <div class="sidebar-info">
-        <h4 class="mb-15">Contact Info</h4>
-        <ul class="side_circle">
-            <li>27 Division St, New York</li>
-            <li><a href="tel:123456789">+1 800 123 456 78</a></li>
-            <li><a href="mailto:epora@example.com">epora@example.com</a></li>
-        </ul>
-        <div class="side-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
-</div>
 <div class="body-overlay"></div>
 
 <main>
@@ -175,8 +153,8 @@ $row_setting = $stmt->fetch();
                                         </div>
                                         <div class="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
                                             <ul class="d-flex align-items-center">
-                                                <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>-</span></li>
-                                                <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>-</span></li>
+                                                <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"><a href="<?php echo $data_kursus['yt']; ?>"><span>Lihat</span></a></li>
+                                                <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"><a href="<?php echo $data_kursus['url_pengajar']; ?>"><span><?php echo $data_kursus['pengajar']; ?></span></a></li>
                                             </ul>
                                         </div>
                                         <div class="tpcourse__rating d-flex align-items-center justify-content-between">

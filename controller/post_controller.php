@@ -13,6 +13,7 @@ if($op == "edit"){
 
         $id = $_POST['id'];
         $title = $_POST['title'];
+        $des = $_POST['des'];
         $gambar = $_FILES['gambar'];
         $penulis = $_POST['penulis'];
         $tanggal = $_POST['tanggal'];
@@ -26,6 +27,7 @@ if($op == "edit"){
             if($isUploading) {
                 $sql = "UPDATE m_post SET 
                 nama = :nama, 
+                des = :des, 
                 gambar = :gambar, 
                 penulis = :penulis, 
                 tgl = :tgl, 
@@ -44,6 +46,7 @@ if($op == "edit"){
                     $stmt = $conn->prepare($sql);
     
                     $stmt->bindValue(":nama", $title);
+                    $stmt->bindValue(":des", $des);
                     $stmt->bindValue(":gambar", $gambar['name']);
                     $stmt->bindValue(":penulis", $penulis);
                     $stmt->bindValue(":tgl", $tanggal);
@@ -61,6 +64,7 @@ if($op == "edit"){
             }else{
                 $sql = "UPDATE m_post SET 
                 nama = :nama, 
+                des = :des, 
                 penulis = :penulis, 
                 tgl = :tgl, 
                 stat = :stat,
@@ -70,6 +74,7 @@ if($op == "edit"){
                 $stmt = $conn->prepare($sql);
 
                 $stmt->bindValue(":nama", $title);
+                $stmt->bindValue(":des", $des);
                 $stmt->bindValue(":penulis", $penulis);
                 $stmt->bindValue(":tgl", $tanggal);
                 $stmt->bindValue(":stat", $status);

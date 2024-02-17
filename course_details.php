@@ -91,8 +91,8 @@ include 'navbar.php';
                                     <span>(125)</span>
                                  </div>
                               </li>
-                              <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"> <span>- Classes</span></li>
-                              <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"> <span>- Students</span></li>
+                               <li><img src="web_assets/img/icon/c-meta-01.png" alt="meta-icon"><a href="<?php echo $data_course['yt']; ?>"><span>Lihat</span></a></li>
+                               <li><img src="web_assets/img/icon/c-meta-02.png" alt="meta-icon"><a href="<?php echo $data_course['url_pengajar']; ?>"><span><?php echo $data_course['pengajar']; ?></span></a></li>
                            </ul>
                         </div>
                      </div>
@@ -171,14 +171,15 @@ include 'navbar.php';
                         <div class="cd-information mb-35">
                            <ul>
                                <?php
-                               $sql_count_materi = $conn->prepare("SELECT COUNT(m_materi.id) FROM m_kursus INNER JOIN m_materi ON m_kursus.id = m_materi.id_kursus WHERE m_materi.status = 1");
-                               $sql_count_materi->execute();
+                               $sql_count_materi = $conn->prepare("SELECT COUNT(m_materi.id) FROM m_kursus INNER JOIN m_materi ON m_kursus.id = m_materi.id_kursus WHERE m_materi.status = 1 AND m_materi.id_kursus = :id_kursus");
+                               $sql_count_materi->execute([":id_kursus" => $id_course]);
                                $data_count_materi = $sql_count_materi->fetch();
                                ?>
                               <li><i class="fa-light fa-address-book"></i> <label>Materi</label> <span><?php echo $data_count_materi['COUNT(m_materi.id)']; ?></span></li>
                               <li><i class="fa-light fa-clock-desk"></i> <label>Duration</label> <span><?php echo $data_course['durasi']; ?></span></li>
                               <li><i class="fi fi-sr-stats"></i> <label>Skill Level</label> <span><?php echo $data_course['skill_level']; ?></span></li>
                               <li><i class="fi fi-rs-diploma"></i> <label>Certificate</label> <span><?php echo ($data_course['sertifikat']) ? "Tersedia" : "Tidak Tersedia"; ?></span></li>
+                               <li><i class="fi fi-br-user"></i> <label>Pengajar</label> <a href="<?php echo $data_course['url_pengajar'] ?>"><span><?php echo $data_course['pengajar']; ?></a></span></li>
                            </ul>
                         </div>
                         <div class="c-details-social">
