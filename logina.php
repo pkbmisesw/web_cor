@@ -1,5 +1,5 @@
 <?php
-// error_reporting(0);
+error_reporting(0);
 include 'config.php';
 
 $sql_setting = "SELECT * FROM setting ORDER BY id DESC";
