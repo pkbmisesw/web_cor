@@ -9,6 +9,35 @@ $row_setting = $stmt->fetch();
 
 $id_course = $_GET['p'];
 
+if(isset($_POST['enroll'])){
+    $sql = $conn->prepare("SELECT m_user.uang, m_kursus.harga FROM m_user CROSS JOIN m_kursus WHERE m_user.id=:id AND m_kursus.id=:id_kursus");
+    $sql->execute([":id" => $_SESSION['user_id'], ":id_kursus" => $id_course]);
+    $data = $sql->fetch();
+    if($data['uang'] < $data['harga']){
+        echo '<script>alert("Uang anda tidak cukup untuk membeli course ini.")</script>';
+        header("Refresh:0;");
+        return;
+    }
+
+    $sql_add_kursus = $conn->prepare("INSERT INTO m_mykursus (id_user, id_kursus) VALUES (:id_user, :id_kursus)");
+    $result = $sql_add_kursus->execute([":id_user" => $_SESSION['user_id'], ":id_kursus" => $id_course]);
+    if(!$result){
+        echo '<script>alert("Something gone wrong on server side.")</script>';
+        return;
+    }
+
+    $sisa_uang = $data['uang'] - $data['harga'];
+
+    $sql_update_uang = $conn->prepare("UPDATE m_user SET uang=:uang WHERE id=:id_user");
+    $result = $sql_update_uang->execute([":id_user" => $_SESSION['user_id'], ":uang" => $sisa_uang]);
+    if(!$result){
+        echo '<script>alert("Something gone wrong on server side.")</script>';
+        return;
+    }
+
+    header("Location: mycourse");
+}
+
 $sql_course = $conn->prepare("SELECT * FROM m_kursus WHERE id=:id");
 $sql_course->execute([":id" => $id_course]);
 $data_course = $sql_course->fetch();
@@ -165,7 +194,10 @@ include 'navbar.php';
                         <div class="cd-video-price">
                            <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-" ?></h3>
                            <div class="cd-pricing-btn text-center mb-30">
-                              <a class="tp-vp-btn-green" href="<?php echo (!empty($_SESSION['email'])) ? "index.php" : "logina"; ?>">Enroll Now</a>
+                               <form id="enroll" method="POST">
+                                   <input name="enroll" hidden />
+                                <a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>
+                               </form>
                            </div>
                         </div>
                         <div class="cd-information mb-35">
@@ -203,8 +235,13 @@ include 'navbar.php';
 include 'footer.php';
 ?>
 
-
-
+<script>
+    function handleEnroll(){
+        if(confirm("Anda yakin ingin membeli course ini?") == true){
+            $("#enroll").submit();
+        }
+    }
+</script>
 
    <!-- JS here -->
    <script src="web_assets/js/vendor/jquery.js"></script>

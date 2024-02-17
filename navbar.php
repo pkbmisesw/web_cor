@@ -108,6 +108,9 @@
                             <?php }else{ ?>
                             <li><a href="logina"><i class="fi fi-rr-user"></i></a></li>
                             <?php } ?>
+
+                            <?php echo ($_SESSION['level_id'] == 3 && $_SESSION['status_aktif'] == 1) ? '<li><a href="mycourse" style="background-color: var(--tp-border-2);"><i class="fa-sharp fa-light fa-scroll" style="color: #fff;"></i></a></li>' : ''; ?>
+                            <?php echo ($_SESSION['level_id'] == 3 && $_SESSION['status_aktif'] == 1) ? '<li><a href="logout" style="background-color: var(--tp-border-2);"><i class="fa-sharp fa-light fa-arrow-right-from-bracket" style="color: #fff;"></i></a></li>' : ''; ?>
                             <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                         </ul>
                     </div>
