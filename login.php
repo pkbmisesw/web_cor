@@ -24,6 +24,7 @@ if (isset($_POST['login'])) {
 			$_SESSION['password'] = $row['password'];
 			$_SESSION['user_id'] = $row['id'];
 			$_SESSION['level_id'] = $row['level_id'];
+            $_SESSION['status_aktif'] = $row['status_aktif'];
 			header("Location: view/admin/index.php");
 			exit;
 		} else {

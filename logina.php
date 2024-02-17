@@ -13,7 +13,7 @@ if(isset($_POST['login'])){
     $password = $_POST['pass'];
 
     try {
-        $sql = "SELECT * FROM m_user WHERE email = :email AND status_aktif = 1";
+        $sql = "SELECT * FROM m_user WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -25,6 +25,7 @@ if(isset($_POST['login'])){
             $_SESSION['password'] = $row['password'];
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['level_id'] = $row['level_id'];
+            $_SESSION['status_aktif'] = $row['status_aktif'];
             header("Location: index.php");
             exit;
         } else {

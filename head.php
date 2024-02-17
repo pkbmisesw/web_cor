@@ -13,6 +13,7 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="web_assets/css/bootstrap.css">
+    <link href="https://cdn.datatables.net/v/dt/dt-2.0.0/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="web_assets/css/meanmenu.css">
     <link rel="stylesheet" href="web_assets/css/animate.css">
     <link rel="stylesheet" href="web_assets/css/slick.css">

@@ -13,7 +13,7 @@ if(isset($_POST['register'])){
     $password = $_POST['password'];
 
     try{
-        $sql = $conn->prepare("INSERT INTO m_user (nama, email, password, status_aktif) VALUES (:nama, :email, :password, 1)");
+        $sql = $conn->prepare("INSERT INTO m_user (nama, email, password, status_aktif, level_id) VALUES (:nama, :email, :password, 0, 3)");
         $result = $sql->execute([":nama" => $username, ":email" => $email, ":password" => password_hash($password, PASSWORD_BCRYPT)]);
         if($result){
             header("Location: logina");
@@ -41,11 +41,11 @@ include 'navbar.php';
                            <h3 class="text-center mb-60">Signup From Here</h3>
                            <form action="" method="POST">
                               <label for="name">Username <span>*</span></label>
-                              <input id="name" name="username" type="text" placeholder="Enter username..." />
+                              <input id="name" name="username" type="text" placeholder="Enter username..." required />
                               <label for="email-id">Email Address <span>*</span></label>
-                              <input id="email-id" name="email" type="text" placeholder="Enter email address..." />
+                              <input id="email-id" name="email" type="email" placeholder="Enter email address..." required />
                               <label for="pass">Password <span>*</span></label>
-                              <input id="pass" name="password" type="password" placeholder="Enter password..." />
+                              <input id="pass" name="password" type="password" placeholder="Enter password..." required />
                               <div class="mt-10"></div>
                               <button name="register" type="submit" class="tp-btn w-100">Register Now</button>
                               <div class="or-divide"><span>or</span></div>
