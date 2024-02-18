@@ -53,7 +53,11 @@ $data = getid($_GET['id']);
         </tr>
         <tr>
             <td>Status</td>
-            <td><input type="text" name="status" value="<?php echo $data["status"]; ?>" /></td>
+            <td><select name="status">
+                    <option value="0" <?php echo ($data["status"] == 0) ? 'selected' : ''; ?>>Sembunyikan</option>
+                    <option value="1" <?php echo ($data["status"] == 1) ? 'selected' : ''; ?>>Aktif</option>
+                    <option value="2" <?php echo ($data["status"] == 2) ? 'selected' : ''; ?>>Aktif Setelah Enroll</option>
+                </select></td>
         </tr>
         <tr>
             <td>

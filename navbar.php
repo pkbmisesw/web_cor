@@ -1,3 +1,11 @@
+<?php
+if(!empty($_SESSION['email'])){
+    $sql_user = $conn->prepare("SELECT * FROM m_user WHERE id=:id_user");
+    $sql_user->execute([":id_user" => $_SESSION['user_id']]);
+    $data_user = $sql_user->fetch();
+}
+?>
+
 <body>
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -104,12 +112,13 @@
                         <ul>
                             <?php if(!empty($_SESSION['email'])){ ?>
                             <li><p class="mt-2"><?php echo $_SESSION['nama']; ?></p></li>
+                            <li><p class="mt-2">&nbsp|&nbsp<?php echo "Rp.&nbsp" . number_format($data_user['uang'], 0, null, '.').",-"; ?></p></li>
                                 <li><a href="profile" style="background-color: var(--tp-border-2);"><i class="fi fi-rr-user" style="color: #fff;"></i></a></li>
                             <?php }else{ ?>
                             <li><a href="logina"><i class="fi fi-rr-user"></i></a></li>
                             <?php } ?>
 
-                            <?php echo ($_SESSION['level_id'] == 3 && $_SESSION['status_aktif'] == 1) ? '<li><a href="mycourse" style="background-color: var(--tp-border-2);"><i class="fa-sharp fa-light fa-scroll" style="color: #fff;"></i></a></li>' : ''; ?>
+                            <?php echo ($data_user['level_id'] == 3 && $data_user['status_aktif'] == 1) ? '<li><a href="mycourse" style="background-color: var(--tp-border-2);"><i class="fa-sharp fa-light fa-scroll" style="color: #fff;"></i></a></li>' : ''; ?>
                             <?php echo (!empty($_SESSION['email'])) ? '<li><a href="logout" style="background-color: var(--tp-border-2);"><i class="fa-sharp fa-light fa-arrow-right-from-bracket" style="color: #fff;"></i></a></li>' : ''; ?>
                             <li><a href="#" class="tp-menu-toggle d-xl-none"><i class="icon_ul"></i></a></li>
                         </ul>

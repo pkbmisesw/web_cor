@@ -61,7 +61,10 @@ while($data=$sql->fetch()) {
         <td><?php echo $data['nama'];?></td>
         <td><?php echo $data['des'];?></td>
         <td><a href="<?php echo $data['url'];?>">Lihat</a></td>
-        <td><?php echo $data['status'];?></td>
+        <?php if($data['status'] == 0){ ?>
+            <td>Tidak Aktif</td>
+        <?php } ?>
+        <?php echo ($data['status'] >= 1 && $data['status'] < 2) ? '<td>Aktif</td>' : '<td>Aktif Setelah Enroll</td>'; ?>
 		<td>
 		<a href="edit.php?id=<?php echo $data['id'];?>">Edit</a>
 		<a onclick="return confirm('are you want deleting data')" href="../../controller/<?php echo $dba; ?>_controller.php?op=hapus&id=<?php echo $data['id'];?>">❌</a>

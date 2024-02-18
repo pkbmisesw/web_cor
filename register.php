@@ -9,13 +9,14 @@ $row_setting = $stmt->fetch();
 $status = 0;
 
 if(isset($_POST['register'])){
-    $username    = $_POST['username'];
+    $nama    = $_POST['nama'];
+    $hp = $_POST['hp'];
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
     try{
-        $sql = $conn->prepare("INSERT INTO m_user (nama, email, password, status_aktif, level_id) VALUES (:nama, :email, :password, 0, 3)");
-        $result = $sql->execute([":nama" => $username, ":email" => $email, ":password" => password_hash($password, PASSWORD_BCRYPT)]);
+        $sql = $conn->prepare("INSERT INTO m_user (nama, email, hp, password, status_aktif, level_id) VALUES (:nama, :email, :hp, :password, 0, 3)");
+        $result = $sql->execute([":nama" => $nama, ":email" => $email, ":password" => password_hash($password, PASSWORD_BCRYPT), ":hp" => $hp]);
         if($result){
             header("Location: logina");
         }
@@ -39,18 +40,20 @@ include 'navbar.php';
                <div class="row">
                   <div class="col-lg-8 offset-lg-2">
                      <div class="basic-login">
-                           <h3 class="text-center mb-60">Signup From Here</h3>
+                           <h3 class="text-center mb-60">Daftar Akun Disini</h3>
                            <form action="" method="POST">
-                              <label for="name">Username <span>*</span></label>
-                              <input id="name" name="username" type="text" placeholder="Enter username..." required />
-                              <label for="email-id">Email Address <span>*</span></label>
-                              <input id="email-id" name="email" type="email" placeholder="Enter email address..." required />
+                              <label for="name">Nama Lengkap <span>*</span></label>
+                              <input id="name" name="nama" type="text" placeholder="Masukkan nama lengkap..." required />
+                               <label for="name">Nomor WA <span>*</span></label>
+                               <input id="hp" name="hp" type="text" placeholder="Masukkan nomor wa..." required />
+                              <label for="email-id">Alamat Email <span>*</span></label>
+                              <input id="email-id" name="email" type="email" placeholder="Masukkan alamat email..." required />
                               <label for="pass">Password <span>*</span></label>
-                              <input id="pass" name="password" type="password" placeholder="Enter password..." required />
+                              <input id="pass" name="password" type="password" placeholder="Masukkan password..." required />
                               <div class="mt-10"></div>
-                              <button name="register" type="submit" class="tp-btn w-100">Register Now</button>
-                              <div class="or-divide"><span>or</span></div>
-                              <a href="logina" class="tp-border-btn w-100">login Now</a>
+                              <button name="register" type="submit" class="tp-btn w-100">Daftar Sekarang</button>
+                              <div class="or-divide"><span>atau</span></div>
+                              <a href="logina" class="tp-border-btn w-100">login</a>
                            </form>
                      </div>
                   </div>

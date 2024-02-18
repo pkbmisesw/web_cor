@@ -14,12 +14,12 @@
                             <span><?php echo $row_setting['nama']; ?>© 2022, All Rights Reserved</span>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4" style="display: none;">
+                    <div class="col-xl-3 col-lg-4">
                         <div class="f-copyright__social-area mb-20 text-lg-end">
-                            <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="#"><i class="fi fi-rr-basketball"></i></a>
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                            <!-- <a href="#"><i class="fa-brands fa-facebook-square"></i></a> -->
+                            <a href="<?php echo $row_setting['yt'] ?>"><i class="fa-brands fa-youtube"></i></a>
+                            <!-- <a href="#"><i class="fi fi-rr-basketball"></i></a> -->
+                            <!-- <a href="#"><i class="fa-brands fa-whatsapp"></i></a> -->
                         </div>
                     </div>
                 </div>

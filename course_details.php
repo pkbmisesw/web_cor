@@ -183,6 +183,15 @@ include 'navbar.php';
                   </div>
                </div>
                <div class="col-lg-4 col-md-12">
+                   <?php if(!empty($_SESSION['email'])){ ?>
+                   <div class="c-details-sidebar mb-25" style="padding: 15px 15px 0px 15px;">
+                       <div class="cd-information">
+                           <ul>
+                               <li><i class="far fa-wallet"></i> <label>Uang</label> <span><?php echo "Rp.&nbsp" . number_format($data_user['uang'], 0, null, '.').",-"; ?></span></li>
+                           </ul>
+                       </div>
+                   </div>
+                   <?php } ?>
                   <div class="c-details-sidebar">
                      <div class="c-video-thumb p-relative mb-25">
                         <img src="images/<?php echo $data_course['pic_yt']; ?>" alt="video-bg">
@@ -192,11 +201,11 @@ include 'navbar.php';
                      </div>
                      <div class="course-details-widget">
                         <div class="cd-video-price">
-                           <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-" ?></h3>
+                           <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-"; ?></h3>
                            <div class="cd-pricing-btn text-center mb-30">
                                <form id="enroll" method="POST">
                                    <input name="enroll" hidden />
-                                <a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>
+                                   <?php echo (!(empty($_SESSION['email']))) ? '<a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>' : '<a class="tp-vp-btn-green" href="logina">Enroll Now</a>' ?>
                                </form>
                            </div>
                         </div>
