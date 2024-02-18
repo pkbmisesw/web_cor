@@ -11,6 +11,16 @@ if(!$data_post){
     echo '<script>document.location.href="index.php"</script>';
 }
 
+$gambar = $data_post['gambar'];
+
+if(empty($gambar)){
+    $gambar = "tidak_ada_gambar.png";
+}
+
+if(!file_exists("images/".$gambar)){
+    $gambar = "tidak_ada_di_image.png";
+}
+
 $sql_setting = "SELECT * FROM setting ORDER BY id DESC";
 $stmt = $conn->prepare($sql_setting);
 $stmt->execute();
@@ -32,7 +42,7 @@ include 'navbar.php';
                         <article class="postbox__item format-image mb-60 transition-3">
                             <div class="postbox__thumb w-img mb-30">
                                 <a href="blog-details.html">
-                                    <img src="../images/<?php echo $data_post["gambar"]; ?>" alt="">
+                                    <img src="../images/<?php echo $gambar; ?>" alt="">
                                 </a>
                             </div>
                             <div class="postbox__content">

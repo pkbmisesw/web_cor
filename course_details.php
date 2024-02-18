@@ -147,10 +147,16 @@ include 'navbar.php';
                                       <div class="accordion-body">
                                         <ul>
                                           <?php
-                                              $sql_materi_list = $conn->prepare("SELECT * FROM m_materi_list WHERE id_materi=:id_materi AND status=:status ORDER BY no_urut ASC");
-                                              $sql_materi_list->execute([":id_materi" => $data_materi['id'], ":status" => 1]);
-                                              while($data_materi_list = $sql_materi_list->fetch()){ ?>
+                                              $sql_materi_list = $conn->prepare("SELECT * FROM m_materi_list WHERE id_materi=:id_materi ORDER BY no_urut ASC");
+                                              $sql_materi_list->execute([":id_materi" => $data_materi['id']]);
+                                              while($data_materi_list = $sql_materi_list->fetch()){
+                                                  if($data_materi_list['status'] == 1){
+                                                  ?>
                                                   <li><a href="<?php echo $data_materi_list['url'] ?>"><i class="fa fa-airplay mr-10"></i><?php echo $data_materi_list['nama']; ?></a></li>
+                                                <?php }
+                                                  if($data_materi_list['status'] == 2){?>
+                                                      <li><a><i class="fa fa-airplay mr-10"></i><?php echo $data_materi_list['nama']; ?></a></li>
+                                                <?php } ?>
                                               <?php } ?>
                                         </ul>
                                       </div>

@@ -76,6 +76,14 @@ $data = getid($_GET['id']);
             <td><input type="text" name="yt" value="<?php echo $data["yt"]; ?>" ></td>
         </tr>
         <tr>
+            <td>Pengajar</td>
+            <td><input type="text" name="pengajar" value="<?php echo $data["pengajar"]; ?>" ></td>
+        </tr>
+        <tr>
+            <td>URL Pengajar</td>
+            <td><input type="text" name="url_pengajar" value="<?php echo $data["url_pengajar"]; ?>" ></td>
+        </tr>
+        <tr>
             <td>
                 <input type="submit" value="Edit" />
             </td>

@@ -18,6 +18,8 @@ if($op == "edit"){
         $sertifikat = $_POST['sertifikat'];
         $pic_yt = $_FILES['pic_yt'];
         $yt = $_POST['yt'];
+        $pengajar = $_POST['pengajar'];
+        $url_pengajar = $_POST['url_pengajar'];
 
         try {
             $isUploading = !empty($pic['name']);
@@ -43,7 +45,9 @@ if($op == "edit"){
                 skill_level = :skill_level,
                 sertifikat = :sertifikat,
                 pic_yt = :pic_yt,
-                yt = :yt
+                yt = :yt,
+                pengajar = :pengajar,
+                url_pengajar = :url_pengajar
                 WHERE id = $id" : "UPDATE m_kursus SET 
                 id_kat = :id_kat,
                 nama = :nama, 
@@ -54,7 +58,10 @@ if($op == "edit"){
                 durasi = :durasi,
                 skill_level = :skill_level,
                 sertifikat = :sertifikat,
-                yt = :yt WHERE id = $id";
+                yt = :yt,
+                pengajar = :pengajar,
+                url_pengajar = :url_pengajar
+                WHERE id = $id";
 
                 $stmt = $conn->prepare($sql);
                 if($isUploadingYt){
@@ -71,6 +78,8 @@ if($op == "edit"){
                 $stmt->bindParam(':skill_level', $skill_level);
                 $stmt->bindParam(':sertifikat', $sertifikat);
                 $stmt->bindParam(':yt', $yt);
+                $stmt->bindParam(':pengajar', $pengajar);
+                $stmt->bindParam(':url_pengajar', $url_pengajar);
                 $stmt->execute();
 
                 if(!(in_array($imageFileType, $allowedFileType))){
@@ -106,7 +115,9 @@ if($op == "edit"){
                 skill_level = :skill_level,
                 sertifikat = :sertifikat,
                 pic_yt = :pic_yt,
-                yt = :yt
+                yt = :yt,
+                pengajar = :pengajar,
+                url_pengajar = :url_pengajar
                 WHERE id = $id" : "UPDATE m_kursus SET 
                 id_kat = :id_kat, 
                 nama = :nama, 
@@ -116,9 +127,12 @@ if($op == "edit"){
                 durasi = :durasi,
                 skill_level = :skill_level,
                 sertifikat = :sertifikat,
-                yt = :yt WHERE id = $id";
+                yt = :yt,
+                pengajar = :pengajar,
+                url_pengajar = :url_pengajar
+                WHERE id = $id";
 
-            if(!(in_array($ytImageFileType, $allowedFileType))){
+            if($isUploadingYt && !(in_array($ytImageFileType, $allowedFileType))){
                 echo "<script>alert('Hanya boleh mengupload file pic dan pdf.'); document.location.href=('../view/m_kursus/')</script>";
             }
 
@@ -138,6 +152,8 @@ if($op == "edit"){
             $stmt->bindParam(':skill_level', $skill_level);
             $stmt->bindParam(':sertifikat', $sertifikat);
             $stmt->bindParam(':yt', $yt);
+            $stmt->bindParam(':pengajar', $pengajar);
+            $stmt->bindParam(':url_pengajar', $url_pengajar);
             $stmt->execute();
 
             if(!$stmt){
