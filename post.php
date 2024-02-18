@@ -42,7 +42,7 @@ include 'navbar.php';
                         <article class="postbox__item format-image mb-60 transition-3">
                             <div class="postbox__thumb w-img mb-30">
                                 <a href="blog-details.html">
-                                    <img src="../images/<?php echo $gambar; ?>" alt="">
+                                    <img src="images/<?php echo $gambar; ?>" alt="">
                                 </a>
                             </div>
                             <div class="postbox__content">
