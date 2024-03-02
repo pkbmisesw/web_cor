@@ -52,7 +52,7 @@ include 'navbar.php';
                                     ?>
                                  <tr>
                                     <td class="product-name"><a href="course_details?p=<?php echo $data_kursus_list['id'] ?>"><?php echo $data_kursus_list['nama']; ?></a></td>
-                                    <td class="product-materi"><a href="mycourse_detail?p=<?php echo $data_kursus_list['id']; ?>" class="amount"><?php echo $data_count_materi['COUNT(m_materi.id)']; ?></a></td>
+                                    <td class="product-materi"><a href="mycourse_detail?p=<?php echo $data_kursus_list['id']; ?>" class="amount"><?php echo "Lihat Materi"; ?></a></td>
                                     <td class="product-duration"><span class="amount"><?php echo $data_kursus_list['durasi']; ?></span></td>
                                     <td class="product-instruktur"><span class="amount"><?php echo $data_kursus_list['pengajar']; ?></span></td>
                                  </tr>

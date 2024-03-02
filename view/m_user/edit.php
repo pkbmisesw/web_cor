@@ -42,6 +42,10 @@ $ketnama = "Silahkan mengisi nama";
             <td><input type="text" name="hp" value='<?php echo $data["hp"]; ?>' /></td>
         </tr>
         <tr>
+            <td>Uang</td>
+            <td><input type="number" name="uang" value='<?php echo $data["uang"]; ?>' /></td>
+        </tr>
+        <tr>
             <td>
                 <input type="submit" value="Edit" />
             </td>

@@ -19,8 +19,9 @@ if(isset($_POST['register'])){
         $sql = $conn->prepare("INSERT INTO m_user (nama, email, hp, password, status_aktif, level_id) VALUES (:nama, :email, :hp, :password, 0, 3)");
         $result = $sql->execute([":nama" => $nama, ":email" => $email, ":password" => $password, ":hp" => $hp]);
         if($result){
-            header("Location: logina");
+            echo '<script>alert("Pendaftaran berhasil."); window.location.href="logina";</script>';
         }
+        echo '<script>alert("Pendaftaran gagal."); window.location.reload();</script>';
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

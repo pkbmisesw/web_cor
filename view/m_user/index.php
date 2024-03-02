@@ -38,6 +38,7 @@ table, td, th {
 <th>Email</th>
 <th>Status Aktif</th>
 <th>HP</th>
+<th>Uang</th>
 <th>Aksi</th>
 </tr>
 
@@ -55,6 +56,7 @@ while($data=$sql->fetch()) {
 		<td><?php echo $data['email'];?></td>
 		<td><?php echo $data['status_aktif'];?></td>
 		<td><?php echo $data['hp'];?></td>
+		<td><?php echo "Rp.&nbsp" . number_format($data['uang'], 0, null, '.').",-"; ?></td>
 		<td>
 		<a href="edit.php?id=<?php echo $data['id']?>">Edit</a>
 		<a onclick="return confirm('are you want deleting data')" href="../../controller/<?php echo $dba; ?>_controller.php?op=hapus&id=<?php echo $data['id']; ?>">❌</a>

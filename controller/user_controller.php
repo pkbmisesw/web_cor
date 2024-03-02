@@ -12,6 +12,7 @@ if($op == "edit"){
         $email = $_POST['email'];
         $status_aktif = $_POST['status_aktif'];
         $hp = $_POST['hp'];
+        $uang = $_POST['uang'];
 
         try {
             $sql = "UPDATE m_user SET 
@@ -19,7 +20,8 @@ if($op == "edit"){
             level_id = :level_id, 
             email = :email, 
             status_aktif = :status_aktif, 
-            hp = :hp 
+            hp = :hp,
+            uang = :uang
 			WHERE id = $id";
 
             $stmt = $conn->prepare($sql);
@@ -28,6 +30,7 @@ if($op == "edit"){
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':status_aktif', $status_aktif);
             $stmt->bindParam(':hp', $hp);
+            $stmt->bindParam(':uang', $uang);
             $stmt->execute();
 
         }
