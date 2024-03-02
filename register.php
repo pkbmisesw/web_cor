@@ -13,10 +13,11 @@ if(isset($_POST['register'])){
     $hp = $_POST['hp'];
     $email    = $_POST['email'];
     $password = $_POST['password'];
+    $password = password_hash($password, PASSWORD_BCRYPT);
 
     try{
         $sql = $conn->prepare("INSERT INTO m_user (nama, email, hp, password, status_aktif, level_id) VALUES (:nama, :email, :hp, :password, 0, 3)");
-        $result = $sql->execute([":nama" => $nama, ":email" => $email, ":password" => password_hash($password, PASSWORD_BCRYPT), ":hp" => $hp]);
+        $result = $sql->execute([":nama" => $nama, ":email" => $email, ":password" => $password, ":hp" => $hp]);
         if($result){
             header("Location: logina");
         }
