@@ -165,12 +165,12 @@ include 'navbar.php';
                              <?php $i++;
                               } else {?>
                                   <div class="accordion-item">
-                                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                      <h2 class="accordion-header" id="panelsStayOpen-heading<?php echo $data_materi['no_urut'] ?>">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>" aria-expanded="false" aria-controls="panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>">
                                               <?php echo $data_materi['nama'] . " #" . $data_materi['no_urut']; ?>
                                           </button>
                                       </h2>
-                                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                      <div id="panelsStayOpen-collapse<?php echo $data_materi['no_urut'] ?>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading<?php echo $data_materi['no_urut'] ?>">
                                           <div class="accordion-body">
                                               <ul>
                                                   <?php
