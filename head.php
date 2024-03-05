@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="web_assets/css/animate.css">
     <link rel="stylesheet" href="web_assets/css/slick.css">
     <link rel="stylesheet" href="web_assets/css/backtotop.css">
+    <link rel="stylesheet" href="web_assets/css/floating.css">
     <link rel="stylesheet" href="web_assets/css/magnific-popup.css">
     <link rel="stylesheet" href="web_assets/css/nice-select.css">
     <link rel="stylesheet" href="web_assets/css/ui-icon.css">
