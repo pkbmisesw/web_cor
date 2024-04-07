@@ -100,6 +100,16 @@ include 'footer.php';
    <script src="web_assets/js/imagesloaded-pkgd.js"></script>
    <script src="web_assets/js/ajax-form.js"></script>
    <script src="web_assets/js/main.js"></script>
+<script src="web_assets/js/floating.js"></script>
+
+<script>
+    $(".floating-button").on("click", () => {
+        let nomor = "<?php echo urlencode($row_setting['wa']); ?>";
+        let text = "<?php echo urlencode($row_setting['kata_wa']); ?>";
+
+        window.location.href="https://wa.me/"+nomor+"?text="+text
+    });
+</script>
 </body>
 
 </html>

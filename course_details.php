@@ -89,7 +89,7 @@ include 'navbar.php';
 <main>
 
     <!-- course-details-area -->
-    <?php if(!$_SESSION['status_aktif'] == 0){ ?>
+    <?php if($_SESSION['status_aktif'] == 0){ ?>
     <div class="container">
         <div class="alert alert-danger" role="alert">
             Akun anda perlu diaktivasi oleh admin, Mohon hubungi nomor WA atau <a href="https://wa.me/<?php echo urlencode($row_setting['wa']) . "?text=Saya ingin melakukan aktivasi akun." ?>"><b>Klik Disini</b></a>
@@ -219,7 +219,7 @@ include 'navbar.php';
                             <div class="cd-video-price">
                                 <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-"; ?></h3>
                                 <div class="cd-pricing-btn text-center mb-30">
-                                    <?php if(!$_SESSION['status_aktif'] == 0){ ?>
+                                    <?php if(!$_SESSION['status_aktif'] == 0){?>
                                     <form id="enroll" method="POST">
                                         <input name="enroll" hidden />
                                         <?php echo (!(empty($_SESSION['email']))) ? '<a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>' : '<a class="tp-vp-btn-green" href="logina">Enroll Now</a>' ?>
