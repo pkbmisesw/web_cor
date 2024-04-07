@@ -89,6 +89,12 @@ include 'navbar.php';
 <main>
 
     <!-- course-details-area -->
+    <?php if(((!$_SESSION['level_id'] == 3) && !$_SESSION['status_aktif'] == 0)) ?>
+    <div class="container">
+        <div class="alert alert-danger" role="alert">
+            Akun anda perlu diaktivasi oleh admin, Mohon hubungi nomor WA atau <a href="https://wa.me/<?php echo urlencode($row_setting['wa']) . "?text=Saya ingin melakukan aktivasi akun." ?>"><b>Klik Disini</b></a>
+        </div>
+    </div>
     <section class="c-details-area pt-120 pb-50 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
         <div class="container">
             <div class="row">
@@ -188,7 +194,8 @@ include 'navbar.php';
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <?php if(!empty($_SESSION['email'])){ ?>
+                    <?php if(!empty($_SESSION['email']) && ((!$_SESSION['level_id'] == 3) && !$_SESSION['status_aktif'] == 0)){
+                        ?>
                         <div class="c-details-sidebar mb-25" style="padding: 15px 15px 0px 15px;">
                             <div class="cd-information">
                                 <ul>
@@ -211,10 +218,12 @@ include 'navbar.php';
                             <div class="cd-video-price">
                                 <h3 class="pricing-video text-center mb-15"><?php echo "Rp. " . number_format($data_course['harga'], 0, null, '.').",-"; ?></h3>
                                 <div class="cd-pricing-btn text-center mb-30">
+                                    <?php if((!$_SESSION['level_id'] == 3) && !$_SESSION['status_aktif'] == 0){ ?>
                                     <form id="enroll" method="POST">
                                         <input name="enroll" hidden />
                                         <?php echo (!(empty($_SESSION['email']))) ? '<a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>' : '<a class="tp-vp-btn-green" href="logina">Enroll Now</a>' ?>
                                     </form>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="cd-information mb-35">
@@ -276,6 +285,16 @@ include 'footer.php';
 <script src="web_assets/js/imagesloaded-pkgd.js"></script>
 <script src="web_assets/js/ajax-form.js"></script>
 <script src="web_assets/js/main.js"></script>
+<script src="web_assets/js/floating.js"></script>
+
+<script>
+    $(".floating-button").on("click", () => {
+        let nomor = "<?php echo urlencode($row_setting['wa']); ?>";
+        let text = "<?php echo urlencode($row_setting['kata_wa']); ?>";
+
+        window.location.href="https://wa.me/"+nomor+"?text="+text
+    });
+</script>
 </body>
 
 </html>
