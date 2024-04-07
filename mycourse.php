@@ -6,6 +6,21 @@ if(empty($_SESSION['email']) || $_SESSION['level_id'] < 3 || $_SESSION['status_a
     header("Location: index.php");
 }
 
+$action = $_GET['action'] ?? '';
+$id = $_GET['id'] ?? '';
+if($action == "delete" && $id){
+    $sql = "DELETE FROM m_mykursus WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+
+    if(!$stmt){
+        echo "<script>alert('Gagal Menghapus'); document.location.href=('../mycourse')</script>";
+    }
+
+    echo "<script>alert('Berhasil Menghapus'); document.location.href=('../mycourse')</script>";
+}
+
 $sql_setting = "SELECT * FROM setting ORDER BY id DESC";
 $stmt = $conn->prepare($sql_setting);
 $stmt->execute();
@@ -36,11 +51,12 @@ include 'navbar.php';
                                     <th class="course-product-materi">Materi</th>
                                     <th class="course-product-duration">Durasi</th>
                                     <th class="course-product-instruktur">Instruktur</th>
+                                    <th class="course-product-action">Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $sql_kursus_list = $conn->prepare("SELECT m_kursus.id, m_kursus.durasi, m_kursus.nama, m_kursus.pengajar FROM m_mykursus INNER JOIN m_kursus ON m_mykursus.id_kursus = m_kursus.id WHERE m_mykursus.id_user = :id_user");
+                                $sql_kursus_list = $conn->prepare("SELECT m_kursus.id, m_kursus.durasi, m_kursus.nama, m_kursus.pengajar, m_mykursus.id as mykursus_id FROM m_mykursus INNER JOIN m_kursus ON m_mykursus.id_kursus = m_kursus.id WHERE m_mykursus.id_user = :id_user");
                                 $sql_kursus_list->execute([':id_user' => $_SESSION['user_id']]);
                                 while($data_kursus_list = $sql_kursus_list->fetch()){
                                     ?>
@@ -55,6 +71,7 @@ include 'navbar.php';
                                         <td class="product-materi"><span class="amount"><?php echo $data_count_materi['COUNT(m_materi.id)']; ?></span></td>
                                         <td class="product-duration"><span class="amount"><?php echo $data_kursus_list['durasi']; ?></span></td>
                                         <td class="product-instruktur"><a href="<?php echo $data_kursus_list['url_pengajar']; ?>"><?php echo $data_kursus_list['pengajar']; ?></a></td>
+                                        <td class="product-action"><a onclick="return confirm('Apakah anda yakin ingin menghapus course ini?')"  class="btn btn-danger text-white" href="?action=delete&id=<?php echo $data_kursus_list['mykursus_id']; ?>"><i class="fa fa-trash"></i></a></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>

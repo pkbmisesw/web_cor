@@ -17,6 +17,13 @@ include 'navbar.php';
    <main>
 
       <!-- instructor-portfolio-area -->
+       <?php if($_SESSION['level_id'] == 3 && $_SESSION['status_aktif'] == 0){ ?>
+           <div class="container">
+               <div class="alert alert-danger" role="alert">
+                   Akun anda perlu diaktivasi oleh admin, Mohon hubungi nomor WA atau <a href="https://wa.me/<?php echo urlencode($row_setting['wa']) . "?text=Saya ingin melakukan aktivasi akun." ?>"><b>Klik Disini</b></a>
+               </div>
+           </div>
+       <?php } ?>
       <section class="instructor-portfolio pt-120 pb-80 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
          <div class="container">
             <div class="row">

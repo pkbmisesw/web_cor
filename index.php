@@ -30,6 +30,13 @@ $row_setting = $stmt->fetch();
     <section class="banner-area fix p-relative">
         <div class="banner-bg banner-bg-rainbow" data-background="web_assets/img/banner/banner-bg-2.jpg">
             <div class="container">
+                <?php if($_SESSION['level_id'] == 3 && $_SESSION['status_aktif'] == 0){ ?>
+                        <div style="margin-top: 110px;">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Akun anda perlu diaktivasi oleh admin, Mohon hubungi nomor WA atau <a href="https://wa.me/<?php echo urlencode($row_setting['wa']) . "?text=Saya ingin melakukan aktivasi akun." ?>"><b>Klik Disini</b></a>
+                        </div>
+                        </div>
+                <?php } ?>
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-8">
                         <div class="hero-content hero-content-black">
