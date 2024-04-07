@@ -225,7 +225,7 @@ include 'navbar.php';
                                         <?php
                                         $sql_mykursus = $conn->prepare("SELECT * FROM `m_mykursus` WHERE id_kursus=:id_kursus AND id_user=:id_user;");
                                         $sql_mykursus->execute([":id_kursus" => $id_course, ":id_user" => $_SESSION['user_id']]);
-                                        if($sql_mykursus->rowCount() < 0){
+                                        if($sql_mykursus->rowCount() <= 0){
                                         ?>
                                         <?php echo (!(empty($_SESSION['email']))) ? '<a class="tp-vp-btn-green" href="javascript:{}" onclick="handleEnroll()">Enroll Now</a>' : '<a class="tp-vp-btn-green" href="logina">Enroll Now</a>' ?>
                                         <?php } else { ?>
